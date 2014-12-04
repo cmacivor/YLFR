@@ -77,7 +77,7 @@ namespace YLFR.ViewModels
         public string WhyAreYouInterested { get; set; }
 
         [Required]
-        [Display(Name = "Previous volunteer experience")]
+        [Display(Name = "Previous volunteer experience:")]
         public string PreviousVolunteerExperience { get; set; }
 
         [Required]

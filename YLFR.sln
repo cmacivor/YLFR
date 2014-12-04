@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YLFR", "YLFR\YLFR.csproj", "{AC8FFDCC-7C68-4AEF-BB19-B5B0B2DD6E7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YLFR.Tests", "YLFR.Tests\YLFR.Tests.csproj", "{B29176E2-A707-443C-99EF-4B5EDB5EC125}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC8FFDCC-7C68-4AEF-BB19-B5B0B2DD6E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8FFDCC-7C68-4AEF-BB19-B5B0B2DD6E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC8FFDCC-7C68-4AEF-BB19-B5B0B2DD6E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC8FFDCC-7C68-4AEF-BB19-B5B0B2DD6E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B29176E2-A707-443C-99EF-4B5EDB5EC125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B29176E2-A707-443C-99EF-4B5EDB5EC125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B29176E2-A707-443C-99EF-4B5EDB5EC125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B29176E2-A707-443C-99EF-4B5EDB5EC125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MentorshipAppllicantsModelStoreContainer" CdmEntityContainer="MentorshipAppllicantsEntities">
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicant">
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Employer" ColumnName="Employer" />
+          <ScalarProperty Name="BusinessPhone" ColumnName="BusinessPhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HighestLevelEducation" ColumnName="HighestLevelEducation" />
+          <ScalarProperty Name="AdvancedEducation" ColumnName="AdvancedEducation" />
+          <ScalarProperty Name="EmergencyContactName" ColumnName="EmergencyContactName" />
+          <ScalarProperty Name="EmergencyContactRelationship" ColumnName="EmergencyContactRelationship" />
+          <ScalarProperty Name="EmergencyContactPhone" ColumnName="EmergencyContactPhone" />
+          <ScalarProperty Name="HowDidYouHear" ColumnName="HowDidYouHear" />
+          <ScalarProperty Name="WhyAreYouInterested" ColumnName="WhyAreYouInterested" />
+          <ScalarProperty Name="PreviousVolunteerExperience" ColumnName="PreviousVolunteerExperience" />
+          <ScalarProperty Name="HobbiesTalentSkills" ColumnName="HobbiesTalentSkills" />
+          <ScalarProperty Name="CommunityChurchAffiliations" ColumnName="CommunityChurchAffiliations" />
+          <ScalarProperty Name="HaveYouBeenArrested" ColumnName="HaveYouBeenArrested" />
+          <ScalarProperty Name="WhatWasTheCharge" ColumnName="WhatWasTheCharge" />
+          <ScalarProperty Name="DrivingViolation" ColumnName="DrivingViolation" />
+          <ScalarProperty Name="DrivingViolationCharge" ColumnName="DrivingViolationCharge" />
+          <ScalarProperty Name="FacebookRegistered" ColumnName="FacebookRegistered" />
+          <ScalarProperty Name="MayWeInvite" ColumnName="MayWeInvite" />
+          <ScalarProperty Name="DoYouHaveTransportation" ColumnName="DoYouHaveTransportation" />
+          <ScalarProperty Name="ProvideRide" ColumnName="ProvideRide" />
+          <ScalarProperty Name="TimeCommitmentDays" ColumnName="TimeCommitmentDays" />
+          <ScalarProperty Name="TimeCommitmentTimes" ColumnName="TimeCommitmentTimes" />
+          <ScalarProperty Name="AreasOfInterest" ColumnName="AreasOfInterest" />
+          <ScalarProperty Name="AreaOfInterestOther" ColumnName="AreaOfInterestOther" />
+          <ScalarProperty Name="LearningCenterPreference" ColumnName="LearningCenterPreference" />
+          <ScalarProperty Name="StatementSignature" ColumnName="StatementSignature" />
+          <ScalarProperty Name="VolunteerCoordinator" ColumnName="VolunteerCoordinator" />
+          <ScalarProperty Name="StatementSignatureDate" ColumnName="StatementSignatureDate" />
+          <ScalarProperty Name="VolunteerCoordinatorDate" ColumnName="VolunteerCoordinatorDate" />
+          <ScalarProperty Name="ConfidentialityStatementSignature" ColumnName="ConfidentialityStatementSignature" />
+          <ScalarProperty Name="AbusePolicySignature" ColumnName="AbusePolicySignature" />
+          <ScalarProperty Name="PublicityPreferences" ColumnName="PublicityPreferences" />
+          <ScalarProperty Name="PublicitySignature" ColumnName="PublicitySignature" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="DLState" ColumnName="DLState" />
+          <ScalarProperty Name="DL_" ColumnName="DL#" />
+          <ScalarProperty Name="BackgroundCheckSignature" ColumnName="BackgroundCheckSignature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommitmentDays">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.CommitmentDay">
+        <MappingFragment StoreEntitySet="CommitmentDays">
+          <ScalarProperty Name="TimeCommitmentDayId" ColumnName="TimeCommitmentDayId" />
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="TimeCommitmentDay" ColumnName="TimeCommitmentDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommitmentTimes">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.CommitmentTime">
+        <MappingFragment StoreEntitySet="CommitmentTimes">
+          <ScalarProperty Name="CommitmentTimeID" ColumnName="CommitmentTimeID" />
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="CommitmentTime1" ColumnName="CommitmentTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterestAreas">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.InterestArea">
+        <MappingFragment StoreEntitySet="InterestAreas">
+          <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="InterestArea1" ColumnName="InterestArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LearningCenterPreferences">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.LearningCenterPreference">
+        <MappingFragment StoreEntitySet="LearningCenterPreferences">
+          <ScalarProperty Name="LearningCenterPreferenceID" ColumnName="LearningCenterPreferenceID" />
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="LearningCenterPreference1" ColumnName="LearningCenterPreference" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

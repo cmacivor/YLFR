@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MentorshipAppllicantsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="ApplicantId" />
+    </Key>
+    <Property Name="ApplicantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Employer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BusinessPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HighestLevelEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdvancedEducation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmergencyContactName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmergencyContactRelationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmergencyContactPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="HowDidYouHear" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WhyAreYouInterested" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PreviousVolunteerExperience" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HobbiesTalentSkills" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CommunityChurchAffiliations" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HaveYouBeenArrested" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="WhatWasTheCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DrivingViolation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="DrivingViolationCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FacebookRegistered" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MayWeInvite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="DoYouHaveTransportation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ProvideRide" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TimeCommitmentDays" Type="Int32" Nullable="false" />
+    <Property Name="TimeCommitmentTimes" Type="Int32" Nullable="false" />
+    <Property Name="AreasOfInterest" Type="Int32" Nullable="false" />
+    <Property Name="AreaOfInterestOther" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LearningCenterPreference" Type="Int32" Nullable="false" />
+    <Property Name="StatementSignature" Type="Boolean" Nullable="false" />
+    <Property Name="VolunteerCoordinator" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="StatementSignatureDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="VolunteerCoordinatorDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ConfidentialityStatementSignature" Type="Boolean" Nullable="false" />
+    <Property Name="AbusePolicySignature" Type="Boolean" Nullable="false" />
+    <Property Name="PublicityPreferences" Type="Int32" Nullable="false" />
+    <Property Name="PublicitySignature" Type="Boolean" Nullable="false" />
+    <Property Name="SSN" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DLState" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DL_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BackgroundCheckSignature" Type="Boolean" />
+    <NavigationProperty Name="CommitmentDays" Relationship="Self.fk_CommitmentDays" FromRole="Applicant" ToRole="CommitmentDays" />
+    <NavigationProperty Name="CommitmentTimes" Relationship="Self.fk_CommitmentTimes" FromRole="Applicant" ToRole="CommitmentTimes" />
+    <NavigationProperty Name="InterestAreas" Relationship="Self.fk_InterestArea" FromRole="Applicant" ToRole="InterestAreas" />
+    <NavigationProperty Name="LearningCenterPreferences" Relationship="Self.fk_LearningCenterPreference" FromRole="Applicant" ToRole="LearningCenterPreferences" />
+  </EntityType>
+  <EntityType Name="CommitmentDay">
+    <Key>
+      <PropertyRef Name="TimeCommitmentDayId" />
+    </Key>
+    <Property Name="TimeCommitmentDayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantID" Type="Int32" Nullable="false" />
+    <Property Name="TimeCommitmentDay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Applicant" Relationship="Self.fk_CommitmentDays" FromRole="CommitmentDays" ToRole="Applicant" />
+  </EntityType>
+  <EntityType Name="CommitmentTime">
+    <Key>
+      <PropertyRef Name="CommitmentTimeID" />
+    </Key>
+    <Property Name="CommitmentTimeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantID" Type="Int32" Nullable="false" />
+    <Property Name="CommitmentTime1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Applicant" Relationship="Self.fk_CommitmentTimes" FromRole="CommitmentTimes" ToRole="Applicant" />
+  </EntityType>
+  <EntityType Name="InterestArea">
+    <Key>
+      <PropertyRef Name="InterestAreaID" />
+    </Key>
+    <Property Name="InterestAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantID" Type="Int32" Nullable="false" />
+    <Property Name="InterestArea1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Applicant" Relationship="Self.fk_InterestArea" FromRole="InterestAreas" ToRole="Applicant" />
+  </EntityType>
+  <EntityType Name="LearningCenterPreference">
+    <Key>
+      <PropertyRef Name="LearningCenterPreferenceID" />
+    </Key>
+    <Property Name="LearningCenterPreferenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantID" Type="Int32" Nullable="false" />
+    <Property Name="LearningCenterPreference1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Applicant" Relationship="Self.fk_LearningCenterPreference" FromRole="LearningCenterPreferences" ToRole="Applicant" />
+  </EntityType>
+  <Association Name="fk_CommitmentDays">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
+    <End Role="CommitmentDays" Type="Self.CommitmentDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="CommitmentDays">
+        <PropertyRef Name="ApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CommitmentTimes">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
+    <End Role="CommitmentTimes" Type="Self.CommitmentTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="CommitmentTimes">
+        <PropertyRef Name="ApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_InterestArea">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
+    <End Role="InterestAreas" Type="Self.InterestArea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="InterestAreas">
+        <PropertyRef Name="ApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LearningCenterPreference">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
+    <End Role="LearningCenterPreferences" Type="Self.LearningCenterPreference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="LearningCenterPreferences">
+        <PropertyRef Name="ApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MentorshipAppllicantsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applicants" EntityType="Self.Applicant" />
+    <EntitySet Name="CommitmentDays" EntityType="Self.CommitmentDay" />
+    <EntitySet Name="CommitmentTimes" EntityType="Self.CommitmentTime" />
+    <EntitySet Name="InterestAreas" EntityType="Self.InterestArea" />
+    <EntitySet Name="LearningCenterPreferences" EntityType="Self.LearningCenterPreference" />
+    <AssociationSet Name="fk_CommitmentDays" Association="Self.fk_CommitmentDays">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="CommitmentDays" EntitySet="CommitmentDays" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CommitmentTimes" Association="Self.fk_CommitmentTimes">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="CommitmentTimes" EntitySet="CommitmentTimes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_InterestArea" Association="Self.fk_InterestArea">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="InterestAreas" EntitySet="InterestAreas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LearningCenterPreference" Association="Self.fk_LearningCenterPreference">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="LearningCenterPreferences" EntitySet="LearningCenterPreferences" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

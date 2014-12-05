@@ -52,19 +52,19 @@ namespace YLFR
         public string MayWeInvite { get; set; }
         public string DoYouHaveTransportation { get; set; }
         public string ProvideRide { get; set; }
-        public int TimeCommitmentDays { get; set; }
-        public int TimeCommitmentTimes { get; set; }
-        public int AreasOfInterest { get; set; }
+        public Nullable<int> TimeCommitmentDays { get; set; }
+        public Nullable<int> TimeCommitmentTimes { get; set; }
+        public Nullable<int> AreasOfInterest { get; set; }
         public string AreaOfInterestOther { get; set; }
-        public int LearningCenterPreference { get; set; }
-        public bool StatementSignature { get; set; }
+        public Nullable<int> LearningCenterPreference { get; set; }
+        public Nullable<bool> StatementSignature { get; set; }
         public string VolunteerCoordinator { get; set; }
-        public System.DateTime StatementSignatureDate { get; set; }
-        public System.DateTime VolunteerCoordinatorDate { get; set; }
-        public bool ConfidentialityStatementSignature { get; set; }
-        public bool AbusePolicySignature { get; set; }
-        public int PublicityPreferences { get; set; }
-        public bool PublicitySignature { get; set; }
+        public Nullable<System.DateTime> StatementSignatureDate { get; set; }
+        public Nullable<System.DateTime> VolunteerCoordinatorDate { get; set; }
+        public Nullable<bool> ConfidentialityStatementSignature { get; set; }
+        public Nullable<bool> AbusePolicySignature { get; set; }
+        public Nullable<int> PublicityPreferences { get; set; }
+        public Nullable<bool> PublicitySignature { get; set; }
         public string SSN { get; set; }
         public string City { get; set; }
         public string State { get; set; }

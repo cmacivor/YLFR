@@ -29,6 +29,8 @@ namespace YLFR.ViewModels
         public string Phone { get; set; }
         
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Birth Date")]
         public DateTime BirthDate { get; set; }
         
@@ -41,10 +43,12 @@ namespace YLFR.ViewModels
         public string Employer { get; set; }
 
         [Required]
+        [Phone]
         [Display(Name = "Business Phone")]
         public string BusinessPhone { get; set; }
 
         [Required]
+        [EmailAddress]
         [Display(Name = "Email Address")]
         public string Email { get; set; }
 
@@ -65,6 +69,7 @@ namespace YLFR.ViewModels
         public string EmergencyContactRelationship { get; set; }
 
         [Required]
+        [Phone]
         [Display(Name = "Emergency contact phone")]
         public string EmergencyContactPhone { get; set; }
 

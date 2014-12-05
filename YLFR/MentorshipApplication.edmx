@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MentorshipAppllicantsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MentorshipAppllicantsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Applicant">
           <Key>
             <PropertyRef Name="ApplicantId" />
@@ -31,31 +31,31 @@
           <Property Name="PreviousVolunteerExperience" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="HobbiesTalentSkills" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="CommunityChurchAffiliations" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="HaveYouBeenArrested" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="WhatWasTheCharge" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="DrivingViolation" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="DrivingViolationCharge" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="FacebookRegistered" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="MayWeInvite" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="DoYouHaveTransportation" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="ProvideRide" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="TimeCommitmentDays" Type="int" Nullable="false" />
-          <Property Name="TimeCommitmentTimes" Type="int" Nullable="false" />
-          <Property Name="AreasOfInterest" Type="int" Nullable="false" />
-          <Property Name="AreaOfInterestOther" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="LearningCenterPreference" Type="int" Nullable="false" />
-          <Property Name="StatementSignature" Type="bit" Nullable="false" />
-          <Property Name="VolunteerCoordinator" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="StatementSignatureDate" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="VolunteerCoordinatorDate" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="ConfidentialityStatementSignature" Type="bit" Nullable="false" />
-          <Property Name="AbusePolicySignature" Type="bit" Nullable="false" />
-          <Property Name="PublicityPreferences" Type="int" Nullable="false" />
-          <Property Name="PublicitySignature" Type="bit" Nullable="false" />
-          <Property Name="SSN" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="HaveYouBeenArrested" Type="nchar" MaxLength="10" />
+          <Property Name="WhatWasTheCharge" Type="nvarchar" MaxLength="100" />
+          <Property Name="DrivingViolation" Type="nchar" MaxLength="10" />
+          <Property Name="DrivingViolationCharge" Type="nvarchar" MaxLength="100" />
+          <Property Name="FacebookRegistered" Type="nchar" MaxLength="10" />
+          <Property Name="MayWeInvite" Type="nchar" MaxLength="10" />
+          <Property Name="DoYouHaveTransportation" Type="nchar" MaxLength="10" />
+          <Property Name="ProvideRide" Type="nchar" MaxLength="10" />
+          <Property Name="TimeCommitmentDays" Type="int" />
+          <Property Name="TimeCommitmentTimes" Type="int" />
+          <Property Name="AreasOfInterest" Type="int" />
+          <Property Name="AreaOfInterestOther" Type="nvarchar" MaxLength="250" />
+          <Property Name="LearningCenterPreference" Type="int" />
+          <Property Name="StatementSignature" Type="bit" />
+          <Property Name="VolunteerCoordinator" Type="nchar" MaxLength="10" />
+          <Property Name="StatementSignatureDate" Type="datetime2" Precision="7" />
+          <Property Name="VolunteerCoordinatorDate" Type="datetime2" Precision="7" />
+          <Property Name="ConfidentialityStatementSignature" Type="bit" />
+          <Property Name="AbusePolicySignature" Type="bit" />
+          <Property Name="PublicityPreferences" Type="int" />
+          <Property Name="PublicitySignature" Type="bit" />
+          <Property Name="SSN" Type="nchar" MaxLength="15" />
           <Property Name="City" Type="nvarchar" MaxLength="50" />
-          <Property Name="State" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Zip" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="State" Type="nchar" MaxLength="10" />
+          <Property Name="Zip" Type="nchar" MaxLength="10" />
           <Property Name="County" Type="nvarchar" MaxLength="50" />
           <Property Name="DLState" Type="nchar" MaxLength="10" />
           <Property Name="DL#" Type="nvarchar" MaxLength="50" />
@@ -164,8 +164,7 @@
             <End Role="LearningCenterPreferences" EntitySet="LearningCenterPreferences" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MentorshipAppllicantsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -195,31 +194,31 @@
           <Property Name="PreviousVolunteerExperience" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HobbiesTalentSkills" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CommunityChurchAffiliations" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="HaveYouBeenArrested" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="WhatWasTheCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DrivingViolation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="DrivingViolationCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FacebookRegistered" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="MayWeInvite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="DoYouHaveTransportation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="ProvideRide" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="TimeCommitmentDays" Type="Int32" Nullable="false" />
-          <Property Name="TimeCommitmentTimes" Type="Int32" Nullable="false" />
-          <Property Name="AreasOfInterest" Type="Int32" Nullable="false" />
-          <Property Name="AreaOfInterestOther" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LearningCenterPreference" Type="Int32" Nullable="false" />
-          <Property Name="StatementSignature" Type="Boolean" Nullable="false" />
-          <Property Name="VolunteerCoordinator" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="StatementSignatureDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="VolunteerCoordinatorDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="ConfidentialityStatementSignature" Type="Boolean" Nullable="false" />
-          <Property Name="AbusePolicySignature" Type="Boolean" Nullable="false" />
-          <Property Name="PublicityPreferences" Type="Int32" Nullable="false" />
-          <Property Name="PublicitySignature" Type="Boolean" Nullable="false" />
-          <Property Name="SSN" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HaveYouBeenArrested" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="WhatWasTheCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DrivingViolation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DrivingViolationCharge" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FacebookRegistered" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MayWeInvite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DoYouHaveTransportation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProvideRide" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TimeCommitmentDays" Type="Int32" />
+          <Property Name="TimeCommitmentTimes" Type="Int32" />
+          <Property Name="AreasOfInterest" Type="Int32" />
+          <Property Name="AreaOfInterestOther" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="LearningCenterPreference" Type="Int32" />
+          <Property Name="StatementSignature" Type="Boolean" />
+          <Property Name="VolunteerCoordinator" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="StatementSignatureDate" Type="DateTime" Precision="7" />
+          <Property Name="VolunteerCoordinatorDate" Type="DateTime" Precision="7" />
+          <Property Name="ConfidentialityStatementSignature" Type="Boolean" />
+          <Property Name="AbusePolicySignature" Type="Boolean" />
+          <Property Name="PublicityPreferences" Type="Int32" />
+          <Property Name="PublicitySignature" Type="Boolean" />
+          <Property Name="SSN" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DLState" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="DL_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

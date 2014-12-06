@@ -79,6 +79,7 @@ namespace YLFR.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    Session["userID"] = model.Email;
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

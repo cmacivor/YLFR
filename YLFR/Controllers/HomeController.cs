@@ -44,6 +44,10 @@ namespace YLFR.Controllers
 
         public ActionResult Page1()
         {
+            //quick test
+            GenericUtilities util = new GenericUtilities();
+            ViewBag.Email = util.ApplicantID;
+
             return View();
         }
 

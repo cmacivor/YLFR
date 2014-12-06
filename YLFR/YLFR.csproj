@@ -167,12 +167,14 @@
     <Compile Include="CommitmentDay.cs">
       <DependentUpon>MentorshipApplication.tt</DependentUpon>
     </Compile>
+    <Compile Include="CommitmentDayRepository.cs" />
     <Compile Include="CommitmentTime.cs">
       <DependentUpon>MentorshipApplication.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="GenericUtilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -26,7 +26,7 @@ namespace YLFR
     public interface ICommitmentTimesRepository
     {
         List<CommitmentTime> GetCommitmentTimesByApplicantID(int applicantID);
-        void AddCommitmentTimesByApplicantID(int applicantID);
+        void AddCommitmentTimes(List<CommitmentTime> commitmentTimes);
         void DeleteCommitmentTimesByApplicantID(int applicantID);
         void Save();
     }
@@ -34,7 +34,7 @@ namespace YLFR
     public interface IInterestAreasRepository
     {
         List<InterestArea> GetInterestAreasByApplicantID(int applicantID);
-        void AddInterestAreaByApplicantID(int applicantID);
+        void AddInterestAreas(List<InterestArea> interestAreas);
         void DeleteInterestAreaByApplicantID(int applicantID);
         void Save();
     }
@@ -42,7 +42,7 @@ namespace YLFR
     public interface ILearningCenterPreferenceRepository
     {
         List<LearningCenterPreference> GetLearningCenterPreferencesByApplicantID(int applicantID);
-        void AddLearningCenterPreferenceByApplicantID(int applicantID);
+        void AddLearningCenterPreferenceByApplicantID(List<LearningCenterPreference> learningPreferences);
         void DeleteLearningCenterPreferenceByApplicantID(int applicantID);
         void Save();
     }

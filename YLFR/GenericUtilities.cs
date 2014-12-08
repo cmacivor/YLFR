@@ -8,17 +8,19 @@ namespace YLFR
     public class GenericUtilities
     {
         MentorshipAppllicantsEntities entities = null;
-        private static string userID;
+        //private static string userID;
         
-        public static string UserID
-        {
-            get { return userID; }
-            set 
-            { 
-                //userID = value;
-                userID = System.Web.HttpContext.Current.Session["userID"].ToString();
-            }
-        }
+        //public static string UserID
+        //{
+        //    get { return userID; }
+        //    set 
+        //    { 
+        //        //userID = value;
+        //        userID = System.Web.HttpContext.Current.Session["userID"].ToString();
+        //    }
+        //}
+
+        public string UserID { get; set; }
 
         private int applicantID;
 
@@ -31,6 +33,11 @@ namespace YLFR
             }
         }
         
+        public int GetApplicantID()
+        {
+            UserID = System.Web.HttpContext.Current.Session["userID"].ToString();
+            return entities.Applicants.FirstOrDefault(x => x.Email == UserID).ApplicantId;
+        }
 
         public GenericUtilities()
         {
@@ -38,4 +45,7 @@ namespace YLFR
         }
         
     }
+
+
+
 }

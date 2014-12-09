@@ -51,9 +51,11 @@ namespace YLFR.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Page2()
         {
-            return View();
+            OptionsRepository options = new OptionsRepository();
+            return View(options.GetAvailableDaysInitialModel());
         }
 
         [HttpPost]

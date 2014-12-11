@@ -14,14 +14,17 @@ namespace YLFR
         {
             entities = new MentorshipAppllicantsEntities();
             ApplicantRepository = new ApplicantRepository(entities);
+            //OptionsRepository = new OptionsRepository(entities);
+            AvailableTimesRepository = new AvailableTimesRepository(entities);
         }
 
 
         // This will be created from test project and passed on to the
         // controllers parameterized constructors
-        public UnitOfWork(IApplicantRepository applicantRepo)
+        public UnitOfWork(IApplicantRepository applicantRepo, IAvailableTimesRepository availableTimes)
         {
             ApplicantRepository = applicantRepo;
+            AvailableTimesRepository = availableTimes;
         }
 
 
@@ -30,5 +33,12 @@ namespace YLFR
             get;
             private set;
         }
+
+        public IAvailableTimesRepository AvailableTimesRepository
+        {
+            get;
+            private set;
+        }
+       
     }
 }

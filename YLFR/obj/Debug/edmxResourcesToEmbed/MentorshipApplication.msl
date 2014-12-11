@@ -94,5 +94,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AvailableTimes">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.AvailableTime">
+        <MappingFragment StoreEntitySet="AvailableTimes">
+          <ScalarProperty Name="AvailableTimes" ColumnName="AvailableTimes" />
+          <ScalarProperty Name="AvailableTimesId" ColumnName="AvailableTimesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterestAreaTypes">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.InterestAreaType">
+        <MappingFragment StoreEntitySet="InterestAreaTypes">
+          <ScalarProperty Name="InterestAreaType1" ColumnName="InterestAreaType" />
+          <ScalarProperty Name="InterestAreaTypeID" ColumnName="InterestAreaTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LearningCenterPreferenceTypes">
+      <EntityTypeMapping TypeName="MentorshipAppllicantsModel.LearningCenterPreferenceType">
+        <MappingFragment StoreEntitySet="LearningCenterPreferenceTypes">
+          <ScalarProperty Name="LearningCenterPreferenceType1" ColumnName="LearningCenterPreferenceType" />
+          <ScalarProperty Name="LearningCenterPreferenceID" ColumnName="LearningCenterPreferenceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

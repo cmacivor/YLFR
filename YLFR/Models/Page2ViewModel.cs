@@ -37,22 +37,34 @@ namespace YLFR.Models
         [Display(Name="Are you able to provide a ride to other mentors?")]
         public string ProvideRide { get; set; }
 
+        
         public IEnumerable<AvailableDays> AvailableDays { get; set; }
         public IEnumerable<AvailableDays> SelectedAvailableDays { get; set; }
         public PostedAvailableDays PostedAvailableDays { get; set; }
+
+        public IEnumerable<AvailableTimes> AvailableTimes { get; set; }
+        public IEnumerable<AvailableTimes> SelectedAvailableTimes  { get; set; }
+        public PostedAvailableTimes  PostedAvailableTimes { get; set; }
+
+        public IEnumerable<InterestAreasTypeOptions> AvailableInterestAreas { get; set; }
+        public IEnumerable<InterestAreasTypeOptions> SelectedInterestAreas { get; set; }
+        public PostedInterestAreas PostedInterestAreas { get; set; }
+
     }
 
-    //public class AvailableDaysVM
-    //{
-       
-    //}
 
     public class PostedAvailableDays
     {
         public string[] AvailableDayIds { get; set; }
     }
 
+    public class PostedAvailableTimes
+    {
+        public string[] AvailableTimeIDs { get; set; }
+    }
 
-
-
+    public class PostedInterestAreas
+    {
+        public string[] AvailableInterestAreaIDs { get; set; }
+    }
 }

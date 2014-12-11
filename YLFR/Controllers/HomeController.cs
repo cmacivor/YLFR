@@ -44,18 +44,13 @@ namespace YLFR.Controllers
 
         public ActionResult Page1()
         {
-            //quick test
-            //GenericUtilities util = new GenericUtilities();
-            //int id = util.GetApplicantID();
-
             return View();
         }
 
         [HttpGet]
         public ActionResult Page2()
         {
-            OptionsRepository options = new OptionsRepository();
-            return View(options.GetAvailableDaysInitialModel());
+            return View(unitOfWork.AvailableTimesRepository.GetAvailableDaysInitialModel());
         }
 
         [HttpPost]
@@ -93,6 +88,5 @@ namespace YLFR.Controllers
             }
             return View();
         }
-
     }
 }

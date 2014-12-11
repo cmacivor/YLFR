@@ -30,5 +30,8 @@ namespace YLFR
         public virtual DbSet<CommitmentTime> CommitmentTimes { get; set; }
         public virtual DbSet<InterestArea> InterestAreas { get; set; }
         public virtual DbSet<LearningCenterPreference> LearningCenterPreferences { get; set; }
+        public virtual DbSet<AvailableTime> AvailableTimes { get; set; }
+        public virtual DbSet<InterestAreaType> InterestAreaTypes { get; set; }
+        public virtual DbSet<LearningCenterPreferenceType> LearningCenterPreferenceTypes { get; set; }
     }
 }

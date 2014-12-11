@@ -61,6 +61,13 @@
           <Property Name="DL#" Type="nvarchar" MaxLength="50" />
           <Property Name="BackgroundCheckSignature" Type="bit" />
         </EntityType>
+        <EntityType Name="AvailableTimes">
+          <Key>
+            <PropertyRef Name="AvailableTimesId" />
+          </Key>
+          <Property Name="AvailableTimesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AvailableTimes" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="CommitmentDays">
           <Key>
             <PropertyRef Name="TimeCommitmentDayId" />
@@ -85,6 +92,13 @@
           <Property Name="ApplicantID" Type="int" Nullable="false" />
           <Property Name="InterestArea" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="InterestAreaTypes">
+          <Key>
+            <PropertyRef Name="InterestAreaTypeID" />
+          </Key>
+          <Property Name="InterestAreaTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterestAreaType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="LearningCenterPreferences">
           <Key>
             <PropertyRef Name="LearningCenterPreferenceID" />
@@ -92,6 +106,13 @@
           <Property Name="LearningCenterPreferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ApplicantID" Type="int" Nullable="false" />
           <Property Name="LearningCenterPreference" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LearningCenterPreferenceTypes">
+          <Key>
+            <PropertyRef Name="LearningCenterPreferenceID" />
+          </Key>
+          <Property Name="LearningCenterPreferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LearningCenterPreferenceType" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="fk_CommitmentDays">
           <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
@@ -143,10 +164,13 @@
         </Association>
         <EntityContainer Name="MentorshipAppllicantsModelStoreContainer">
           <EntitySet Name="Applicant" EntityType="Self.Applicant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AvailableTimes" EntityType="Self.AvailableTimes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CommitmentDays" EntityType="Self.CommitmentDays" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CommitmentTimes" EntityType="Self.CommitmentTimes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterestAreaTypes" EntityType="Self.InterestAreaTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LearningCenterPreferences" EntityType="Self.LearningCenterPreferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearningCenterPreferenceTypes" EntityType="Self.LearningCenterPreferenceTypes" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_CommitmentDays" Association="Self.fk_CommitmentDays">
             <End Role="Applicant" EntitySet="Applicant" />
             <End Role="CommitmentDays" EntitySet="CommitmentDays" />
@@ -334,7 +358,31 @@
             <End Role="Applicant" EntitySet="Applicants" />
             <End Role="LearningCenterPreferences" EntitySet="LearningCenterPreferences" />
           </AssociationSet>
+          <EntitySet Name="AvailableTimes" EntityType="MentorshipAppllicantsModel.AvailableTime" />
+          <EntitySet Name="InterestAreaTypes" EntityType="MentorshipAppllicantsModel.InterestAreaType" />
+          <EntitySet Name="LearningCenterPreferenceTypes" EntityType="MentorshipAppllicantsModel.LearningCenterPreferenceType" />
         </EntityContainer>
+        <EntityType Name="AvailableTime">
+          <Key>
+            <PropertyRef Name="AvailableTimesId" />
+          </Key>
+          <Property Name="AvailableTimesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AvailableTimes" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InterestAreaType">
+          <Key>
+            <PropertyRef Name="InterestAreaTypeID" />
+          </Key>
+          <Property Name="InterestAreaTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InterestAreaType1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LearningCenterPreferenceType">
+          <Key>
+            <PropertyRef Name="LearningCenterPreferenceID" />
+          </Key>
+          <Property Name="LearningCenterPreferenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LearningCenterPreferenceType1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -431,6 +479,30 @@
                 <ScalarProperty Name="LearningCenterPreferenceID" ColumnName="LearningCenterPreferenceID" />
                 <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
                 <ScalarProperty Name="LearningCenterPreference1" ColumnName="LearningCenterPreference" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvailableTimes">
+            <EntityTypeMapping TypeName="MentorshipAppllicantsModel.AvailableTime">
+              <MappingFragment StoreEntitySet="AvailableTimes">
+                <ScalarProperty Name="AvailableTimes" ColumnName="AvailableTimes" />
+                <ScalarProperty Name="AvailableTimesId" ColumnName="AvailableTimesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterestAreaTypes">
+            <EntityTypeMapping TypeName="MentorshipAppllicantsModel.InterestAreaType">
+              <MappingFragment StoreEntitySet="InterestAreaTypes">
+                <ScalarProperty Name="InterestAreaType1" ColumnName="InterestAreaType" />
+                <ScalarProperty Name="InterestAreaTypeID" ColumnName="InterestAreaTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LearningCenterPreferenceTypes">
+            <EntityTypeMapping TypeName="MentorshipAppllicantsModel.LearningCenterPreferenceType">
+              <MappingFragment StoreEntitySet="LearningCenterPreferenceTypes">
+                <ScalarProperty Name="LearningCenterPreferenceType1" ColumnName="LearningCenterPreferenceType" />
+                <ScalarProperty Name="LearningCenterPreferenceID" ColumnName="LearningCenterPreferenceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

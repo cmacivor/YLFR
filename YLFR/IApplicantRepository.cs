@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YLFR.Models;
 
 namespace YLFR
 {
@@ -45,5 +46,30 @@ namespace YLFR
         void AddLearningCenterPreferenceByApplicantID(List<LearningCenterPreference> learningPreferences);
         void DeleteLearningCenterPreferenceByApplicantID(int applicantID);
         void Save();
+    }
+
+    public interface IAvailableTimesRepository
+    {
+        IEnumerable<AvailableTimes> GetAvailableTimes();
+        Page2ViewModel GetAvailableDaysInitialModel();
+        //void AddAvailableTime(AvailableTime availableTime);
+        //void DeleteAvailableTime(int availableTimeID);
+        //void Save();
+    }
+
+    public interface IInterestAreaTypesRepository
+    {
+        IEnumerable<InterestAreasTypeOptions> GetInterestAreaTypeOptions();
+        //void AddInterestAreaType(InterestAreaType interestAreaType);
+        //void DeleteInterestAreaType(int interestAreaTypeID);
+        //void Save();
+    }
+
+    public interface ILearningCenterPreferenceTypesRepository
+    {
+        //List<LearningCenterPreferenceType> GetLearningCenterPreferenceTypes();
+        //void AddLearningCenterPreferenceType(LearningCenterPreferenceType preferenceType);
+        //void DeleteLearningCenterPreferenceType(int learningCenterPrefID);
+        //void Save();
     }
 }

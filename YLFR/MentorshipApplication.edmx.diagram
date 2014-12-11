@@ -14,6 +14,9 @@
         <AssociationConnector Association="MentorshipAppllicantsModel.fk_CommitmentTimes" ManuallyRouted="false" />
         <AssociationConnector Association="MentorshipAppllicantsModel.fk_InterestArea" ManuallyRouted="false" />
         <AssociationConnector Association="MentorshipAppllicantsModel.fk_LearningCenterPreference" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MentorshipAppllicantsModel.AvailableTime" Width="1.5" PointX="5.375" PointY="1.375" />
+        <EntityTypeShape EntityType="MentorshipAppllicantsModel.InterestAreaType" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MentorshipAppllicantsModel.LearningCenterPreferenceType" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

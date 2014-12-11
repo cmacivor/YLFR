@@ -167,6 +167,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AvailableTime.cs">
+      <DependentUpon>MentorshipApplication.tt</DependentUpon>
+    </Compile>
     <Compile Include="CommitmentDay.cs">
       <DependentUpon>MentorshipApplication.tt</DependentUpon>
     </Compile>
@@ -187,10 +190,16 @@
       <DependentUpon>MentorshipApplication.tt</DependentUpon>
     </Compile>
     <Compile Include="InterestAreaRepository.cs" />
+    <Compile Include="InterestAreaType.cs">
+      <DependentUpon>MentorshipApplication.tt</DependentUpon>
+    </Compile>
     <Compile Include="LearningCenterPreference.cs">
       <DependentUpon>MentorshipApplication.tt</DependentUpon>
     </Compile>
     <Compile Include="LearningCenterPreferenceRepository.cs" />
+    <Compile Include="LearningCenterPreferenceType.cs">
+      <DependentUpon>MentorshipApplication.tt</DependentUpon>
+    </Compile>
     <Compile Include="MentorshipApplication.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

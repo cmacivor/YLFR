@@ -91,6 +91,7 @@
           <Property Name="InterestAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ApplicantID" Type="int" Nullable="false" />
           <Property Name="InterestArea" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PreferenceRanking" Type="int" />
         </EntityType>
         <EntityType Name="InterestAreaTypes">
           <Key>
@@ -278,6 +279,7 @@
           <Property Name="ApplicantID" Type="Int32" Nullable="false" />
           <Property Name="InterestArea1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Applicant" Relationship="Self.fk_InterestArea" FromRole="InterestAreas" ToRole="Applicant" />
+          <Property Name="PreferenceRanking" Type="Int32" />
         </EntityType>
         <EntityType Name="LearningCenterPreference">
           <Key>
@@ -467,6 +469,7 @@
           <EntitySetMapping Name="InterestAreas">
             <EntityTypeMapping TypeName="MentorshipAppllicantsModel.InterestArea">
               <MappingFragment StoreEntitySet="InterestAreas">
+                <ScalarProperty Name="PreferenceRanking" ColumnName="PreferenceRanking" />
                 <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
                 <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
                 <ScalarProperty Name="InterestArea1" ColumnName="InterestArea" />

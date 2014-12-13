@@ -50,6 +50,9 @@ namespace YLFR.Models
         public IEnumerable<InterestAreasTypeOptions> SelectedInterestAreas { get; set; }
         public PostedInterestAreas PostedInterestAreas { get; set; }
 
+        public IEnumerable<LearningCenterPreferencesOptions> AvailableLearningCenters { get; set; }
+        public IEnumerable<LearningCenterPreferencesOptions> SelectedLearningCenters { get; set; }
+        public PostedLearningCenters PostedLearningCenters { get; set; }
     }
 
 
@@ -66,5 +69,10 @@ namespace YLFR.Models
     public class PostedInterestAreas
     {
         public string[] AvailableInterestAreaIDs { get; set; }
+    }
+
+    public class PostedLearningCenters
+    {
+        public string[] AvailableLearningCenterIDs { get; set; }
     }
 }

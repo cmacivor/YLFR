@@ -79,6 +79,7 @@
     <EntitySetMapping Name="InterestAreas">
       <EntityTypeMapping TypeName="MentorshipAppllicantsModel.InterestArea">
         <MappingFragment StoreEntitySet="InterestAreas">
+          <ScalarProperty Name="PreferenceRanking" ColumnName="PreferenceRanking" />
           <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
           <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
           <ScalarProperty Name="InterestArea1" ColumnName="InterestArea" />

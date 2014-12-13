@@ -67,7 +67,7 @@ namespace YLFR
 
     public interface ILearningCenterPreferenceTypesRepository
     {
-        //List<LearningCenterPreferenceType> GetLearningCenterPreferenceTypes();
+        IEnumerable<LearningCenterPreferencesOptions> GetLearningCenterPreferenceOptions();
         //void AddLearningCenterPreferenceType(LearningCenterPreferenceType preferenceType);
         //void DeleteLearningCenterPreferenceType(int learningCenterPrefID);
         //void Save();

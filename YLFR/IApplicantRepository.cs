@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YLFR.Models;
+using YLFR.ViewModels;
 
 namespace YLFR
 {
@@ -11,6 +12,7 @@ namespace YLFR
     {
         List<Applicant> GetAllApplicants();
         Applicant GetApplicantByID(int id);
+        Applicant MapViewModelToApplicantDomainModel(Page1ViewModel viewModel);
         void AddApplicant(Applicant applicant);
         void UpdateApplicant(Applicant applicant);
         void Save();

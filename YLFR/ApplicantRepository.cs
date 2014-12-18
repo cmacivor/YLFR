@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using YLFR.Models;
+using YLFR.ViewModels;
 
 namespace YLFR
 {
@@ -37,6 +39,35 @@ namespace YLFR
         public void Save()
         {
             entities.SaveChanges();
+        }
+
+        public Applicant MapViewModelToApplicantDomainModel(Page1ViewModel vm)
+        {
+            Applicant applicant = new Applicant
+            {
+                FirstName = vm.FirstName,
+                MiddleName = vm.MiddleName,
+                LastName = vm.LastName,
+                Date = DateTime.Now,
+                Address = vm.Address,
+                Phone = vm.Phone,
+                BirthDate = vm.BirthDate,
+                Gender = vm.Gender,
+                Employer = vm.Employer,
+                BusinessPhone = vm.BusinessPhone,
+                Email = vm.Email,
+                HighestLevelEducation = vm.EducationLevel,
+                AdvancedEducation = vm.AdvancedEducation,
+                EmergencyContactName = vm.EmergencyContactName,
+                EmergencyContactRelationship = vm.EmergencyContactRelationship,
+                EmergencyContactPhone = vm.EmergencyContactPhone,
+                HowDidYouHear = vm.HowDidYouHear,
+                WhyAreYouInterested = vm.WhyAreYouInterested,
+                PreviousVolunteerExperience = vm.PreviousVolunteerExperience,
+                HobbiesTalentSkills = vm.HobbiesTalentSkills,
+                CommunityChurchAffiliations = vm.CommunityChurchAffiliations
+            };
+            return applicant;
         }
     }
 }

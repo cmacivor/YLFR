@@ -226,9 +226,9 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\MentorshipAppllicants.mdf" />
-    <Content Include="App_Data\MentorshipAppllicants_log.ldf">
-      <DependentUpon>MentorshipAppllicants.mdf</DependentUpon>
+    <Content Include="App_Data\ApplicantsDB.mdf" />
+    <Content Include="App_Data\ApplicantsDB_log.ldf">
+      <DependentUpon>ApplicantsDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -236,6 +236,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="MentorshipApplication.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="MentorshipApplication.edmx">
@@ -315,6 +316,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

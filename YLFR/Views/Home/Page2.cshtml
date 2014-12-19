@@ -20,7 +20,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HaveBeenArrested, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HaveBeenArrested, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.HaveBeenArrested, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*@Html.DropDownListFor(model => model.HaveBeenArrested, new SelectList(ViewBag.HaveBeenArrestDDL), "-Select a value-", new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(m => m.HaveBeenArrested, Model.DropDownListOptions, "Please Select", htmlAttributes: new {@class = "form-control" })
                 @Html.ValidationMessageFor(model => model.HaveBeenArrested, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace YLFR.ViewModels
 {
@@ -37,7 +38,8 @@ namespace YLFR.ViewModels
         [Display(Name="Are you able to provide a ride to other mentors?")]
         public string ProvideRide { get; set; }
 
-        
+        public SelectList DropDownListOptions { get; set; }
+
         public IEnumerable<AvailableDays> AvailableDays { get; set; }
         public IEnumerable<AvailableDays> SelectedAvailableDays { get; set; }
         public PostedAvailableDays PostedAvailableDays { get; set; }

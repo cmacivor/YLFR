@@ -72,7 +72,6 @@ namespace YLFR.Tests.Controllers
                     FirstName = "John",
                     MiddleName = "Henry",
                     LastName = "Smith",
-                    
                     Address = "123 Anywhere",
                     Phone = "8048691111",
                     BirthDate = DateTime.Now,
@@ -112,32 +111,51 @@ namespace YLFR.Tests.Controllers
             }
         }
 
-        public void MapViewModelToApplicantDomainModel(Page1ViewModel vm)
+        [TestMethod]
+        public void Page2()
         {
-            Page1ViewModel model = new Page1ViewModel
+            List<AvailableDays> availableDays = new List<AvailableDays>();
+            //availableDays.Add(new PostedAvailableDays { })
+
+            Page2ViewModel viewModel = new Page2ViewModel
             {
-                FirstName = "John",
-                MiddleName = "Henry",
-                LastName = "Smith",
-                Address = "123 Anywhere",
-                Phone = "804-869-1111",
-                BirthDate = DateTime.Today,
-                Gender = "Male",
-                Employer = "Something Company",
-                BusinessPhone = "888-789-9999",
-                Email = "cmacivor82@gmail.com",
-                EducationLevel = "Masters",
-                AdvancedEducation = "none",
-                EmergencyContactName = "Someone else",
-                EmergencyContactRelationship = "relationship",
-                EmergencyContactPhone = "804-888-3333",
-                HowDidYouHear = "word of mouth",
-                WhyAreYouInterested = "to serve people",
-                PreviousVolunteerExperience = "various places",
-                HobbiesTalentSkills = "none",
-                CommunityChurchAffiliations = "City Church"
+                HaveBeenArrested = "Yes",
+                MisdemeanorCharge = "You don't want to know",
+                DrivingViolation = "Yes",
+                DrivingViolationCharge = "something I don't know",
+                FacebookRegistered = "yep",
+                FacebookInvite = "no",
+                HaveTransportation = "yes",
+                ProvideRide = "yes"
             };
         }
+
+        //public void MapViewModelToApplicantDomainModel(Page1ViewModel vm)
+        //{
+        //    Page1ViewModel model = new Page1ViewModel
+        //    {
+        //        FirstName = "John",
+        //        MiddleName = "Henry",
+        //        LastName = "Smith",
+        //        Address = "123 Anywhere",
+        //        Phone = "804-869-1111",
+        //        BirthDate = DateTime.Today,
+        //        Gender = "Male",
+        //        Employer = "Something Company",
+        //        BusinessPhone = "888-789-9999",
+        //        Email = "cmacivor82@gmail.com",
+        //        EducationLevel = "Masters",
+        //        AdvancedEducation = "none",
+        //        EmergencyContactName = "Someone else",
+        //        EmergencyContactRelationship = "relationship",
+        //        EmergencyContactPhone = "804-888-3333",
+        //        HowDidYouHear = "word of mouth",
+        //        WhyAreYouInterested = "to serve people",
+        //        PreviousVolunteerExperience = "various places",
+        //        HobbiesTalentSkills = "none",
+        //        CommunityChurchAffiliations = "City Church"
+        //    };
+        //}
    
     }
 }

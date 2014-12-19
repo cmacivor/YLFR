@@ -88,5 +88,15 @@ namespace YLFR.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Page2(Page2ViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                //get the record from the session 
+            }
+            return View();
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace YLFR.Models
+namespace YLFR.ViewModels
 {
     public class Page2ViewModel
     {

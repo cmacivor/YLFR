@@ -94,7 +94,7 @@ namespace YLFR.Controllers
         {
             if (ModelState.IsValid)
             {
-                //get the record from the session 
+                //get the record from current user from the session 
             }
             return View();
         }

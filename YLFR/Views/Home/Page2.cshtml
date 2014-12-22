@@ -21,16 +21,16 @@
             @Html.LabelFor(model => model.HaveBeenArrested, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.HaveBeenArrested, new { htmlAttributes = new { @class = "form-control" } })*@
-                @*@Html.DropDownListFor(model => model.HaveBeenArrested, new SelectList(ViewBag.HaveBeenArrestDDL), "-Select a value-", new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.DropDownListFor(m => m.HaveBeenArrested, Model.DropDownListOptions, "Please Select", htmlAttributes: new {@class = "form-control" })
+                @Html.DropDownListFor(m => m.HaveBeenArrested, Model.DropDownListOptions, "Please Select", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.HaveBeenArrested, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display:none" id="divMisdemeanorCharge">
             @Html.LabelFor(model => model.MisdemeanorCharge, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MisdemeanorCharge, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.DropDownListFor(m => m.MisdemeanorCharge, Model.DropDownListOptions, "Please Select", new { htmlAttributes = new { @class = "form-control"} })*@
                 @Html.ValidationMessageFor(model => model.MisdemeanorCharge, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -38,12 +38,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DrivingViolation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DrivingViolation, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.DrivingViolation, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(m => m.DrivingViolation, Model.DropDownListOptions, "Please Select", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.DrivingViolation, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="divDrivingViolationCharge" style="display:none">
             @Html.LabelFor(model => model.DrivingViolationCharge, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DrivingViolationCharge, new { htmlAttributes = new { @class = "form-control" } })
@@ -54,15 +55,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FacebookRegistered, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FacebookRegistered, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.FacebookRegistered, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(m => m.FacebookRegistered, Model.DropDownListOptions, "Please Select", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FacebookRegistered, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="divFacebookInvite" style="display:none">
             @Html.LabelFor(model => model.FacebookInvite, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FacebookInvite, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.FacebookInvite, new { htmlAttributes = new { @class = "form-control" }})*@
+                @Html.DropDownListFor(m => m.FacebookInvite, Model.DropDownListOptions, "Please Select", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FacebookInvite, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,32 +73,56 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HaveTransportation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HaveTransportation, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.HaveTransportation, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(m => m.HaveTransportation, Model.DropDownListOptions, "Please Select", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.HaveTransportation, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="divProvideRide" style="display:none">
             @Html.LabelFor(model => model.ProvideRide, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ProvideRide, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.ProvideRide, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(m => m.ProvideRide, Model.DropDownListOptions, "Please Select", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ProvideRide, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
+    </div>
+    <div class="form-inline">
         <div class="form-group">
             <h3>Time Commitment and Availability</h3>
-            <label class="control-label col-md-2">Day(s) Available:</label>
+            <label class="control-label col-md-3">Day(s) Available:</label>
             <div class="col-md-offset-2 col-md-10">
-                @Html.CheckBoxListFor(model => model.PostedAvailableDays.AvailableDayIds,
-                                      model => model.AvailableDays,
-                                      days => days.Id,
-                                      days => days.Name,
-                                      model => model.SelectedAvailableDays,
-                                      position: MvcCheckBoxList.Model.Position.Vertical)
+                @*@Html.CheckBoxListFor(model => model.PostedAvailableDays.AvailableDayIds,
+                    model => model.AvailableDays,
+                    days => days.Id,
+                    days => days.Name,
+                    model => model.SelectedAvailableDays,
+                    position: MvcCheckBoxList.Model.Position.Vertical)*@
+
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="availableDays" class="availableDays" value="Monday" />Monday
+                    </label>
+                    <label>
+                        <input type="checkbox" name="availableDays" class="availableDays" value="Tuesday" />Tuesday
+                    </label>
+                    <label>
+                        <input type="checkbox" name="availableDays" class="availableDays" value="Wednesday" />Wednesday
+                    </label>
+                    <label>
+                        <input type="checkbox" name="availableDays" class="availableDays" value="Thursday" />Thursday
+                    </label>
+                    <label>
+                        <input type="checkbox" name="availableDays" class="availableDays" value="Friday" />Friday
+                    </label>
+                </div>
+
             </div>
         </div>
+    </div>
+    <div class="form-horizontal">
         <div class="form-group">
             <label class="control-label col-md-2">Time(s) Available:</label>
             <div class="col-md-offset-2 col-md-10">
@@ -146,7 +173,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" id="btnSubmit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -162,5 +189,78 @@
         //alert('test');
         //need to loop through all selected checkboxes and render textboxes so they have the ability to indicate order of Interest Areas
         //then make an ajax call on submit
+        $(document).ready(function () {
+
+            $('#btnSubmit').click(function () {
+                var checkedValues = $('input[name="availableDays"]:checked').map(function () {
+                    return this.value;
+                }).get();
+                console.log(checkedValues);
+
+               
+               
+            });
+
+        
+            $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function () {
+                var count = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').length;
+                //alert(count);
+                if (count > 1) {
+                    //alert(count);
+                }
+            });
+            
+            $('#availableDays').change(function () {
+                alert('test suc');
+            });
+
+            $('#HaveBeenArrested').change(function() {
+                var answer = $('#HaveBeenArrested').val();
+                if (answer == "Yes")
+                {
+                    $('#divMisdemeanorCharge').show();
+                }
+                if (answer == "No")
+                {
+                    $('#divMisdemeanorCharge').hide();
+                }
+            });
+
+            $('#DrivingViolation').change(function () {
+                var answer = $('#DrivingViolation').val();
+                if (answer == "Yes")
+                {
+                    $('#divDrivingViolationCharge').show();
+                }
+                if (answer == "No")
+                {
+                    $('#divDrivingViolationCharge').hide();
+                }
+            });
+
+            $('#FacebookRegistered').change(function () {
+                var answer = $('#FacebookRegistered').val();
+                if (answer == "Yes")
+                {
+                    $('#divFacebookInvite').show();
+                }
+                if (answer == "No")
+                {
+                    $('#divFacebookInvite').hide();
+                }
+            });
+
+            $('#HaveTransportation').change(function () {
+                var answer = $('#HaveTransportation').val();
+                if (answer == "Yes")
+                {
+                    $('#divProvideRide').show();
+                }
+                if (answer == "No")
+                {
+                    $('#divProvideRide').hide();
+                }
+            });
+        });
     </script>
 }

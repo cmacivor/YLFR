@@ -26,19 +26,44 @@ namespace YLFR
             return entities.Applicants.SingleOrDefault(x => x.ApplicantId == id);
         }
 
+        public Applicant GetApplicantByEmailAddress(string email)
+        {
+            return entities.Applicants.SingleOrDefault(x => x.Email == email);
+        }
+
         public void AddApplicant(Applicant applicant)
         {
             entities.Applicants.Add(applicant);
         }
 
-        public void UpdateApplicant(Applicant applicant)
+        public void UpdateApplicant(Page2ViewModel vm, string email)
         {
+            //Applicant page2Applicant = GetApplicantByEmailAddress(email);
+            Applicant applicant = MapPage2VMToApplicantDM(vm, email);
             
         }
 
         public void Save()
         {
             entities.SaveChanges();
+        }
+
+        public Applicant MapPage2VMToApplicantDM(Page2ViewModel vm, string email)
+        {
+            Applicant applicant = new Applicant();
+            applicant = GetApplicantByEmailAddress(email);
+            applicant.HaveYouBeenArrested = vm.HaveBeenArrested;
+            applicant.WhatWasTheCharge = vm.MisdemeanorCharge;
+            applicant.DrivingViolation = vm.DrivingViolation;
+            applicant.DrivingViolationCharge = vm.DrivingViolationCharge;
+            applicant.FacebookRegistered = vm.FacebookRegistered;
+            applicant.MayWeInvite = vm.FacebookInvite;
+            applicant.DoYouHaveTransportation = vm.HaveTransportation;
+            applicant.ProvideRide = vm.ProvideRide;
+            
+
+
+            return applicant;
         }
 
         public Applicant MapViewModelToApplicantDomainModel(Page1ViewModel vm)

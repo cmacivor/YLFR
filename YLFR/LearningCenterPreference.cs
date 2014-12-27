@@ -17,6 +17,7 @@ namespace YLFR
         public int LearningCenterPreferenceID { get; set; }
         public int ApplicantID { get; set; }
         public string LearningCenterPreference1 { get; set; }
+        public Nullable<int> Ranking { get; set; }
     
         public virtual Applicant Applicant { get; set; }
     }

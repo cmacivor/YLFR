@@ -93,15 +93,15 @@
             <h3>Time Commitment and Availability</h3>
             <label class="control-label col-md-3">Day(s) Available:</label>
             <div class="col-md-offset-2 col-md-10">
-                @*@Html.CheckBoxListFor(model => model.PostedAvailableDays.AvailableDayIds,
+                @Html.CheckBoxListFor(model => model.PostedAvailableDays.AvailableDayIds,
                     model => model.AvailableDays,
-                    days => days.Id,
+                    days => days.Name,
                     days => days.Name,
                     model => model.SelectedAvailableDays,
-                    position: MvcCheckBoxList.Model.Position.Vertical)*@
+                    position: MvcCheckBoxList.Model.Position.Vertical)
 
 
-                <div class="checkbox">
+                @*<div class="checkbox">
                     <label>
                         <input type="checkbox" name="availableDays" class="availableDays" value="Monday" />Monday
                     </label>
@@ -117,7 +117,7 @@
                     <label>
                         <input type="checkbox" name="availableDays" class="availableDays" value="Friday" />Friday
                     </label>
-                </div>
+                </div>*@
 
             </div>
         </div>
@@ -128,7 +128,7 @@
             <div class="col-md-offset-2 col-md-10">
                 @Html.CheckBoxListFor(model => model.PostedAvailableTimes.AvailableTimeIDs,
                                       model => model.AvailableTimes,
-                                      times => times.Id,
+                                      times => times.Name,
                                       times => times.Name,
                                       model => model.SelectedAvailableTimes,
                                       position: MvcCheckBoxList.Model.Position.Vertical)
@@ -139,7 +139,7 @@
             <div class="col-md-offset-2 col-md-10">
                 @Html.CheckBoxListFor(model => model.PostedInterestAreas.AvailableInterestAreaIDs,
                                   model => model.AvailableInterestAreas,
-                                  areas => areas.Id,
+                                  areas => areas.Name,
                                   areas => areas.Name,
                                   model => model.SelectedInterestAreas,
                                   position: MvcCheckBoxList.Model.Position.Vertical)
@@ -147,7 +147,7 @@
         </div>
         <div class="form-group">
             <label class="control-label col-md-2">If you mark more than one area, please put a number to indicate the order of your preference.</label>
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-2 col-md-10" id="divInterestAreaRanking">
                 @*<table>
                         @foreach (var item in @Model.AvailableLearningCenters)
                         {
@@ -156,7 +156,10 @@
                             </tr>
                         }
                     </table>*@
+                <div class="form-group">
+                    
 
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -164,7 +167,7 @@
             <div class="col-md-offset-2 col-md-10">
                 @Html.CheckBoxListFor(model => model.PostedLearningCenters.AvailableLearningCenterIDs,
                                   model => model.AvailableLearningCenters,
-                                  model => model.Id,
+                                  model => model.Name,
                                   model => model.Name,
                                   model => model.SelectedLearningCenters,
                                   position: MvcCheckBoxList.Model.Position.Vertical)
@@ -197,18 +200,20 @@
                 }).get();
                 console.log(checkedValues);
 
-               
-               
-            });
-
-        
-            $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function () {
+                //will want to save these in the corresponding table before letting them rate their entries.
                 var count = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').length;
                 //alert(count);
                 if (count > 1) {
                     //alert(count);
+
                 }
+               
             });
+
+            //don't want to do this in
+            //$('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function () {
+               
+            //});
             
             $('#availableDays').change(function () {
                 alert('test suc');
@@ -220,7 +225,7 @@
                 {
                     $('#divMisdemeanorCharge').show();
                 }
-                if (answer == "No")
+                if (answer == "No" || answer == "Please Select")
                 {
                     $('#divMisdemeanorCharge').hide();
                 }
@@ -232,7 +237,7 @@
                 {
                     $('#divDrivingViolationCharge').show();
                 }
-                if (answer == "No")
+                if (answer == "No" || answer == "Please Select")
                 {
                     $('#divDrivingViolationCharge').hide();
                 }
@@ -244,7 +249,7 @@
                 {
                     $('#divFacebookInvite').show();
                 }
-                if (answer == "No")
+                if (answer == "No" || answer == "Please Select")
                 {
                     $('#divFacebookInvite').hide();
                 }
@@ -256,7 +261,7 @@
                 {
                     $('#divProvideRide').show();
                 }
-                if (answer == "No")
+                if (answer == "No" || answer == "Please Select")
                 {
                     $('#divProvideRide').hide();
                 }

@@ -89,6 +89,7 @@
     <EntitySetMapping Name="LearningCenterPreferences">
       <EntityTypeMapping TypeName="IsTypeOf(MentorshipAppllicantsModel.LearningCenterPreference)">
         <MappingFragment StoreEntitySet="LearningCenterPreferences">
+          <ScalarProperty Name="Ranking" ColumnName="Ranking" />
           <ScalarProperty Name="LearningCenterPreferenceID" ColumnName="LearningCenterPreferenceID" />
           <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
           <ScalarProperty Name="LearningCenterPreference1" ColumnName="LearningCenterPreference1" />

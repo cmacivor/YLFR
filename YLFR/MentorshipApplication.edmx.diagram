@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b87defd57d8949feb0d687c81e429b02" Name="Diagram1" ZoomLevel="73">
+      <Diagram DiagramId="b87defd57d8949feb0d687c81e429b02" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="MentorshipAppllicantsModel.Applicant" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorshipAppllicantsModel.CommitmentDay" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="MentorshipAppllicantsModel.CommitmentTime" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />

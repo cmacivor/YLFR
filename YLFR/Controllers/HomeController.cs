@@ -70,6 +70,7 @@ namespace YLFR.Controllers
                     Employer = vm.Employer,
                     BusinessPhone = vm.BusinessPhone,
                     Email = vm.Email,
+                    //Email = Session["userID"].ToString(),
                     HighestLevelEducation = vm.EducationLevel,
                     AdvancedEducation = vm.AdvancedEducation,
                     EmergencyContactName = vm.EmergencyContactName,

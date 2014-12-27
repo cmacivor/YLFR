@@ -12,9 +12,11 @@ namespace YLFR
     {
         List<Applicant> GetAllApplicants();
         Applicant GetApplicantByID(int id);
+        Applicant GetApplicantByEmailAddress(string email);
         Applicant MapViewModelToApplicantDomainModel(Page1ViewModel viewModel);
+        Applicant MapPage2VMToApplicantDM(Page2ViewModel vm, string email);
         void AddApplicant(Applicant applicant);
-        void UpdateApplicant(Applicant applicant);
+        void UpdateApplicant(Page2ViewModel vm, string email);
         void Save();
     }
 

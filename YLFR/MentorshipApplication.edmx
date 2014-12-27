@@ -4,192 +4,193 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MentorshipAppllicantsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="MentorshipAppllicantsModelStoreContainer">
-    <EntitySet Name="Applicants" EntityType="MentorshipAppllicantsModel.Store.Applicants" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CommitmentDays" EntityType="MentorshipAppllicantsModel.Store.CommitmentDays" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CommitmentTimes" EntityType="MentorshipAppllicantsModel.Store.CommitmentTimes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="InterestAreas" EntityType="MentorshipAppllicantsModel.Store.InterestAreas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LearningCenterPreferences" EntityType="MentorshipAppllicantsModel.Store.LearningCenterPreferences" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AvailableTimes" EntityType="MentorshipAppllicantsModel.Store.AvailableTimes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="InterestAreaTypes" EntityType="MentorshipAppllicantsModel.Store.InterestAreaTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LearningCenterPreferenceTypes" EntityType="MentorshipAppllicantsModel.Store.LearningCenterPreferenceTypes" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="fk_CommitmentDays" Association="MentorshipAppllicantsModel.Store.fk_CommitmentDays">
-      <End Role="Applicant" EntitySet="Applicants" />
-      <End Role="CommitmentDays" EntitySet="CommitmentDays" />
-    </AssociationSet>
-    <AssociationSet Name="fk_CommitmentTimes" Association="MentorshipAppllicantsModel.Store.fk_CommitmentTimes">
-      <End Role="Applicant" EntitySet="Applicants" />
-      <End Role="CommitmentTimes" EntitySet="CommitmentTimes" />
-    </AssociationSet>
-    <AssociationSet Name="fk_InterestArea" Association="MentorshipAppllicantsModel.Store.fk_InterestArea">
-      <End Role="Applicant" EntitySet="Applicants" />
-      <End Role="InterestAreas" EntitySet="InterestAreas" />
-    </AssociationSet>
-    <AssociationSet Name="fk_LearningCenterPreference" Association="MentorshipAppllicantsModel.Store.fk_LearningCenterPreference">
-      <End Role="Applicant" EntitySet="Applicants" />
-      <End Role="LearningCenterPreferences" EntitySet="LearningCenterPreferences" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Applicants">
-    <Key>
-      <PropertyRef Name="ApplicantId" />
-    </Key>
-    <Property Name="ApplicantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="MiddleName" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Phone" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="BirthDate" Type="datetime" Nullable="false" />
-    <Property Name="Gender" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="Employer" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="BusinessPhone" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="HighestLevelEducation" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="AdvancedEducation" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="EmergencyContactName" Type="nvarchar" Nullable="false" MaxLength="75" />
-    <Property Name="EmergencyContactRelationship" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="EmergencyContactPhone" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="HowDidYouHear" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="WhyAreYouInterested" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="PreviousVolunteerExperience" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="HobbiesTalentSkills" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="CommunityChurchAffiliations" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="HaveYouBeenArrested" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="WhatWasTheCharge" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="DrivingViolation" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="DrivingViolationCharge" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="FacebookRegistered" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="MayWeInvite" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="DoYouHaveTransportation" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="ProvideRide" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="TimeCommitmentDays" Type="int" Nullable="true" />
-    <Property Name="TimeCommitmentTimes" Type="int" Nullable="true" />
-    <Property Name="AreasOfInterest" Type="int" Nullable="true" />
-    <Property Name="AreaOfInterestOther" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="LearningCenterPreference" Type="int" Nullable="true" />
-    <Property Name="StatementSignature" Type="bit" Nullable="true" />
-    <Property Name="VolunteerCoordinator" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="StatementSignatureDate" Type="datetime" Nullable="true" />
-    <Property Name="VolunteerCoordinatorDate" Type="datetime" Nullable="true" />
-    <Property Name="ConfidentialityStatementSignature" Type="bit" Nullable="true" />
-    <Property Name="AbusePolicySignature" Type="bit" Nullable="true" />
-    <Property Name="PublicityPreferences" Type="int" Nullable="true" />
-    <Property Name="PublicitySignature" Type="bit" Nullable="true" />
-    <Property Name="SSN" Type="nchar" Nullable="true" MaxLength="15" />
-    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="State" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="Zip" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="County" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="DLState" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="DL_" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="BackgroundCheckSignature" Type="bit" Nullable="true" />
-  </EntityType>
-  <EntityType Name="CommitmentDays">
-    <Key>
-      <PropertyRef Name="TimeCommitmentDayId" />
-    </Key>
-    <Property Name="TimeCommitmentDayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ApplicantID" Type="int" Nullable="false" />
-    <Property Name="TimeCommitmentDay" Type="nvarchar" Nullable="false" MaxLength="20" />
-  </EntityType>
-  <EntityType Name="CommitmentTimes">
-    <Key>
-      <PropertyRef Name="CommitmentTimeID" />
-    </Key>
-    <Property Name="CommitmentTimeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ApplicantID" Type="int" Nullable="false" />
-    <Property Name="CommitmentTime1" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="InterestAreas">
-    <Key>
-      <PropertyRef Name="InterestAreaID" />
-    </Key>
-    <Property Name="InterestAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ApplicantID" Type="int" Nullable="false" />
-    <Property Name="InterestArea1" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="PreferenceRanking" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="LearningCenterPreferences">
-    <Key>
-      <PropertyRef Name="LearningCenterPreferenceID" />
-    </Key>
-    <Property Name="LearningCenterPreferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ApplicantID" Type="int" Nullable="false" />
-    <Property Name="LearningCenterPreference1" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="AvailableTimes">
-    <Key>
-      <PropertyRef Name="AvailableTimesId" />
-    </Key>
-    <Property Name="AvailableTimesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AvailableTimes" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="InterestAreaTypes">
-    <Key>
-      <PropertyRef Name="InterestAreaTypeID" />
-    </Key>
-    <Property Name="InterestAreaTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="InterestAreaType1" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="LearningCenterPreferenceTypes">
-    <Key>
-      <PropertyRef Name="LearningCenterPreferenceID" />
-    </Key>
-    <Property Name="LearningCenterPreferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LearningCenterPreferenceType1" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <Association Name="fk_CommitmentDays">
-    <End Role="Applicant" Type="MentorshipAppllicantsModel.Store.Applicants" Multiplicity="1" />
-    <End Role="CommitmentDays" Type="MentorshipAppllicantsModel.Store.CommitmentDays" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Applicant">
-        <PropertyRef Name="ApplicantId" />
-      </Principal>
-      <Dependent Role="CommitmentDays">
-        <PropertyRef Name="ApplicantID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_CommitmentTimes">
-    <End Role="Applicant" Type="MentorshipAppllicantsModel.Store.Applicants" Multiplicity="1" />
-    <End Role="CommitmentTimes" Type="MentorshipAppllicantsModel.Store.CommitmentTimes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Applicant">
-        <PropertyRef Name="ApplicantId" />
-      </Principal>
-      <Dependent Role="CommitmentTimes">
-        <PropertyRef Name="ApplicantID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_InterestArea">
-    <End Role="Applicant" Type="MentorshipAppllicantsModel.Store.Applicants" Multiplicity="1" />
-    <End Role="InterestAreas" Type="MentorshipAppllicantsModel.Store.InterestAreas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Applicant">
-        <PropertyRef Name="ApplicantId" />
-      </Principal>
-      <Dependent Role="InterestAreas">
-        <PropertyRef Name="ApplicantID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_LearningCenterPreference">
-    <End Role="Applicant" Type="MentorshipAppllicantsModel.Store.Applicants" Multiplicity="1" />
-    <End Role="LearningCenterPreferences" Type="MentorshipAppllicantsModel.Store.LearningCenterPreferences" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Applicant">
-        <PropertyRef Name="ApplicantId" />
-      </Principal>
-      <Dependent Role="LearningCenterPreferences">
-        <PropertyRef Name="ApplicantID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="MentorshipAppllicantsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Applicants">
+          <Key>
+            <PropertyRef Name="ApplicantId" />
+          </Key>
+          <Property Name="ApplicantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="Gender" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Employer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BusinessPhone" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HighestLevelEducation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdvancedEducation" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmergencyContactName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="EmergencyContactRelationship" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmergencyContactPhone" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="HowDidYouHear" Type="nvarchar" MaxLength="500" />
+          <Property Name="WhyAreYouInterested" Type="nvarchar" MaxLength="500" />
+          <Property Name="PreviousVolunteerExperience" Type="nvarchar" MaxLength="500" />
+          <Property Name="HobbiesTalentSkills" Type="nvarchar" MaxLength="500" />
+          <Property Name="CommunityChurchAffiliations" Type="nvarchar" MaxLength="500" />
+          <Property Name="HaveYouBeenArrested" Type="nvarchar" MaxLength="50" />
+          <Property Name="WhatWasTheCharge" Type="nvarchar" MaxLength="100" />
+          <Property Name="DrivingViolation" Type="nchar" MaxLength="10" />
+          <Property Name="DrivingViolationCharge" Type="nvarchar" MaxLength="100" />
+          <Property Name="FacebookRegistered" Type="nchar" MaxLength="10" />
+          <Property Name="MayWeInvite" Type="nchar" MaxLength="10" />
+          <Property Name="DoYouHaveTransportation" Type="nchar" MaxLength="10" />
+          <Property Name="ProvideRide" Type="nchar" MaxLength="10" />
+          <Property Name="TimeCommitmentDays" Type="int" />
+          <Property Name="TimeCommitmentTimes" Type="int" />
+          <Property Name="AreasOfInterest" Type="int" />
+          <Property Name="AreaOfInterestOther" Type="nvarchar" MaxLength="250" />
+          <Property Name="LearningCenterPreference" Type="int" />
+          <Property Name="StatementSignature" Type="bit" />
+          <Property Name="VolunteerCoordinator" Type="nchar" MaxLength="10" />
+          <Property Name="StatementSignatureDate" Type="datetime" />
+          <Property Name="VolunteerCoordinatorDate" Type="datetime" />
+          <Property Name="ConfidentialityStatementSignature" Type="bit" />
+          <Property Name="AbusePolicySignature" Type="bit" />
+          <Property Name="PublicityPreferences" Type="int" />
+          <Property Name="PublicitySignature" Type="bit" />
+          <Property Name="SSN" Type="nchar" MaxLength="15" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nchar" MaxLength="10" />
+          <Property Name="Zip" Type="nchar" MaxLength="10" />
+          <Property Name="County" Type="nvarchar" MaxLength="50" />
+          <Property Name="DLState" Type="nchar" MaxLength="10" />
+          <Property Name="DL_" Type="nvarchar" MaxLength="50" />
+          <Property Name="BackgroundCheckSignature" Type="bit" />
+        </EntityType>
+        <EntityType Name="AvailableTimes">
+          <Key>
+            <PropertyRef Name="AvailableTimesId" />
+          </Key>
+          <Property Name="AvailableTimesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AvailableTimes" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommitmentDays">
+          <Key>
+            <PropertyRef Name="TimeCommitmentDayId" />
+          </Key>
+          <Property Name="TimeCommitmentDayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicantID" Type="int" Nullable="false" />
+          <Property Name="TimeCommitmentDay" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommitmentTimes">
+          <Key>
+            <PropertyRef Name="CommitmentTimeID" />
+          </Key>
+          <Property Name="CommitmentTimeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicantID" Type="int" Nullable="false" />
+          <Property Name="CommitmentTime1" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterestAreas">
+          <Key>
+            <PropertyRef Name="InterestAreaID" />
+          </Key>
+          <Property Name="InterestAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicantID" Type="int" Nullable="false" />
+          <Property Name="InterestArea1" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PreferenceRanking" Type="int" />
+        </EntityType>
+        <EntityType Name="InterestAreaTypes">
+          <Key>
+            <PropertyRef Name="InterestAreaTypeID" />
+          </Key>
+          <Property Name="InterestAreaTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterestAreaType1" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LearningCenterPreferences">
+          <Key>
+            <PropertyRef Name="LearningCenterPreferenceID" />
+          </Key>
+          <Property Name="LearningCenterPreferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicantID" Type="int" Nullable="false" />
+          <Property Name="LearningCenterPreference1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ranking" Type="int" />
+        </EntityType>
+        <EntityType Name="LearningCenterPreferenceTypes">
+          <Key>
+            <PropertyRef Name="LearningCenterPreferenceID" />
+          </Key>
+          <Property Name="LearningCenterPreferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LearningCenterPreferenceType1" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_CommitmentDays">
+          <End Role="Applicants" Type="Self.Applicants" Multiplicity="1" />
+          <End Role="CommitmentDays" Type="Self.CommitmentDays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applicants">
+              <PropertyRef Name="ApplicantId" />
+            </Principal>
+            <Dependent Role="CommitmentDays">
+              <PropertyRef Name="ApplicantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CommitmentTimes">
+          <End Role="Applicants" Type="Self.Applicants" Multiplicity="1" />
+          <End Role="CommitmentTimes" Type="Self.CommitmentTimes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applicants">
+              <PropertyRef Name="ApplicantId" />
+            </Principal>
+            <Dependent Role="CommitmentTimes">
+              <PropertyRef Name="ApplicantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InterestArea">
+          <End Role="Applicants" Type="Self.Applicants" Multiplicity="1" />
+          <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applicants">
+              <PropertyRef Name="ApplicantId" />
+            </Principal>
+            <Dependent Role="InterestAreas">
+              <PropertyRef Name="ApplicantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_LearningCenterPreference">
+          <End Role="Applicants" Type="Self.Applicants" Multiplicity="1" />
+          <End Role="LearningCenterPreferences" Type="Self.LearningCenterPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Applicants">
+              <PropertyRef Name="ApplicantId" />
+            </Principal>
+            <Dependent Role="LearningCenterPreferences">
+              <PropertyRef Name="ApplicantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MentorshipAppllicantsModelStoreContainer">
+          <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AvailableTimes" EntityType="Self.AvailableTimes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommitmentDays" EntityType="Self.CommitmentDays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommitmentTimes" EntityType="Self.CommitmentTimes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterestAreaTypes" EntityType="Self.InterestAreaTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearningCenterPreferences" EntityType="Self.LearningCenterPreferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearningCenterPreferenceTypes" EntityType="Self.LearningCenterPreferenceTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_CommitmentDays" Association="Self.fk_CommitmentDays">
+            <End Role="Applicants" EntitySet="Applicants" />
+            <End Role="CommitmentDays" EntitySet="CommitmentDays" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CommitmentTimes" Association="Self.fk_CommitmentTimes">
+            <End Role="Applicants" EntitySet="Applicants" />
+            <End Role="CommitmentTimes" EntitySet="CommitmentTimes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InterestArea" Association="Self.fk_InterestArea">
+            <End Role="Applicants" EntitySet="Applicants" />
+            <End Role="InterestAreas" EntitySet="InterestAreas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_LearningCenterPreference" Association="Self.fk_LearningCenterPreference">
+            <End Role="Applicants" EntitySet="Applicants" />
+            <End Role="LearningCenterPreferences" EntitySet="LearningCenterPreferences" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MentorshipAppllicantsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -201,10 +202,10 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Employer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BusinessPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
@@ -234,8 +235,8 @@
           <Property Name="LearningCenterPreference" Type="Int32" />
           <Property Name="StatementSignature" Type="Boolean" />
           <Property Name="VolunteerCoordinator" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="StatementSignatureDate" Type="DateTime" Precision="7" />
-          <Property Name="VolunteerCoordinatorDate" Type="DateTime" Precision="7" />
+          <Property Name="StatementSignatureDate" Type="DateTime" Precision="3" />
+          <Property Name="VolunteerCoordinatorDate" Type="DateTime" Precision="3" />
           <Property Name="ConfidentialityStatementSignature" Type="Boolean" />
           <Property Name="AbusePolicySignature" Type="Boolean" />
           <Property Name="PublicityPreferences" Type="Int32" />
@@ -287,8 +288,9 @@
           </Key>
           <Property Name="LearningCenterPreferenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ApplicantID" Type="Int32" Nullable="false" />
-          <Property Name="LearningCenterPreference1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LearningCenterPreference1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Applicant" Relationship="Self.fk_LearningCenterPreference" FromRole="LearningCenterPreferences" ToRole="Applicant" />
+          <Property Name="Ranking" Type="Int32" />
         </EntityType>
         <Association Name="fk_CommitmentDays">
           <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
@@ -479,7 +481,8 @@
     <EntitySetMapping Name="LearningCenterPreferences">
       <EntityTypeMapping TypeName="IsTypeOf(MentorshipAppllicantsModel.LearningCenterPreference)">
         <MappingFragment StoreEntitySet="LearningCenterPreferences">
-          <ScalarProperty Name="LearningCenterPreferenceID" ColumnName="LearningCenterPreferenceID" />
+          <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+                <ScalarProperty Name="LearningCenterPreferenceID" ColumnName="LearningCenterPreferenceID" />
           <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
           <ScalarProperty Name="LearningCenterPreference1" ColumnName="LearningCenterPreference1" />
         </MappingFragment>

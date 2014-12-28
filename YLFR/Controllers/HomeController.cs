@@ -99,5 +99,17 @@ namespace YLFR.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        public JsonResult SaveInterestArea(PostedInterestAreas learningCenterPref)
+        {
+            //need to replace this with Session variable later
+            string testEmail = "cmacivor82@gmail.com";
+
+            //unitOfWork.LearningCenterPreferenceRepository.AddLearningCenterPreferenceByApplicantID(learningCenterPref, testEmail);
+            unitOfWork.InterestAreasRepository.AddInterestAreas(learningCenterPref, testEmail);
+            unitOfWork.InterestAreasRepository.Save();
+            return Json("OK");
+        }
     }
 }

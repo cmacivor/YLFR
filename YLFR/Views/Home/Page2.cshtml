@@ -188,32 +188,52 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="~/Scripts/json3.min.js"></script>
     <script type="text/javascript">
         //alert('test');
         //need to loop through all selected checkboxes and render textboxes so they have the ability to indicate order of Interest Areas
         //then make an ajax call on submit
         $(document).ready(function () {
 
-            $('#btnSubmit').click(function () {
-                var checkedValues = $('input[name="availableDays"]:checked').map(function () {
-                    return this.value;
-                }).get();
-                console.log(checkedValues);
+            //$('#btnSubmit').click(function () {
+            //    var checkedValues = $('input[name="availableDays"]:checked').map(function () {
+            //        return this.value;
+            //    }).get();
+            //    console.log(checkedValues);
+            //});
 
+           
+            $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function () {
                 //will want to save these in the corresponding table before letting them rate their entries.
                 var count = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').length;
                 //alert(count);
                 if (count > 1) {
                     //alert(count);
 
-                }
-               
-            });
+                    var checkedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').map(function () {
+                        return this.value;
+                    }).get();
+                    //console.log(checkedValues);
+                    //make ajax call to insert rows into 
+                    $.ajax({
+                        url: "/Home/SaveInterestArea",
+                        type: "POST",
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON3.stringify({
+                            learningCenterPref: {
+                                'AvailableInterestAreaIDs': checkedValues
+                            }
+                        }),
+                        success: function () {
+                            //load jquery Datatable with data just entered and make it editable
 
-            //don't want to do this in
-            //$('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function () {
-               
-            //});
+                        },
+                        error: function () {
+
+                        }
+                    });
+                }
+            });
             
             $('#availableDays').change(function () {
                 alert('test suc');

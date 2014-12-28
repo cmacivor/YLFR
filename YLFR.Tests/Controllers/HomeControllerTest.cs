@@ -126,7 +126,10 @@ namespace YLFR.Tests.Controllers
             centers.AvailableLearningCenterIDs = new string[] { "Highland Park Learning Center (elementary)", "L.C. Remix (middle/high)" };
 
             Applicant applicant = new Applicant();
+
+            //need to replace this with Session variable later
             string testEmail = "cmacivor82@gmail.com";
+
             UnitOfWork unitOfWork = new UnitOfWork();
             Page2ViewModel viewModel = new Page2ViewModel
             {
@@ -145,9 +148,12 @@ namespace YLFR.Tests.Controllers
                 PostedLearningCenters = centers
             };
 
-            //applicant = unitOfWork.ApplicantRepository.MapPage2VMToApplicantDM(viewModel, testEmail);
-             unitOfWork.ApplicantRepository.UpdateApplicant(viewModel, testEmail);
-             //unitOfWork.ApplicantRepository.Save();
+            unitOfWork.ApplicantRepository.UpdateApplicant(viewModel, testEmail);
+            unitOfWork.CommitmentDaysRepository.AddCommitmentDays(days, testEmail);
+            unitOfWork.CommitmentTimesRepository.AddCommitmentTimes(times, testEmail);
+            unitOfWork.InterestAreasRepository.AddInterestAreas(areas, testEmail);
+            unitOfWork.LearningCenterPreferenceRepository.AddLearningCenterPreferenceByApplicantID(centers, testEmail);
+            unitOfWork.ApplicantRepository.Save();
         }
 
 

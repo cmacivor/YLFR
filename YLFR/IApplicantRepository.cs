@@ -23,7 +23,7 @@ namespace YLFR
     public interface ICommitmentDaysRepository
     {
         List<CommitmentDay> GetCommitmentDaysByApplicantID(int applicantID);
-        void AddCommitmentDays(List<CommitmentDay> commitmentDays);
+        void AddCommitmentDays(PostedAvailableDays commitmentDays, string email);
         void DeleteCommitmentDaysByApplicantID(int applicantID);
         void Save();
     }
@@ -31,7 +31,7 @@ namespace YLFR
     public interface ICommitmentTimesRepository
     {
         List<CommitmentTime> GetCommitmentTimesByApplicantID(int applicantID);
-        void AddCommitmentTimes(List<CommitmentTime> commitmentTimes);
+        void AddCommitmentTimes(PostedAvailableTimes commitmentTimes, string email);
         void DeleteCommitmentTimesByApplicantID(int applicantID);
         void Save();
     }
@@ -39,7 +39,7 @@ namespace YLFR
     public interface IInterestAreasRepository
     {
         List<InterestArea> GetInterestAreasByApplicantID(int applicantID);
-        void AddInterestAreas(List<InterestArea> interestAreas);
+        void AddInterestAreas(PostedInterestAreas interestAreas, string email);
         void DeleteInterestAreaByApplicantID(int applicantID);
         void Save();
     }
@@ -47,7 +47,7 @@ namespace YLFR
     public interface ILearningCenterPreferenceRepository
     {
         List<LearningCenterPreference> GetLearningCenterPreferencesByApplicantID(int applicantID);
-        void AddLearningCenterPreferenceByApplicantID(List<LearningCenterPreference> learningPreferences);
+        void AddLearningCenterPreferenceByApplicantID(PostedLearningCenters learningPreferences, string email);
         void DeleteLearningCenterPreferenceByApplicantID(int applicantID);
         void Save();
     }
@@ -56,7 +56,7 @@ namespace YLFR
     {
         IEnumerable<AvailableTimes> GetAvailableTimes();
         Page2ViewModel GetAvailableDaysInitialModel();
-        //void AddAvailableTime(AvailableTime availableTime);
+        //void AddAvailableTime(PostedAvailableTimes availableTimes, string email);
         //void DeleteAvailableTime(int availableTimeID);
         //void Save();
     }
@@ -64,7 +64,7 @@ namespace YLFR
     public interface IInterestAreaTypesRepository
     {
         IEnumerable<InterestAreasTypeOptions> GetInterestAreaTypeOptions();
-        //void AddInterestAreaType(InterestAreaType interestAreaType);
+        //void AddInterestAreaType(PostedInterestAreas interestAreas, string email);
         //void DeleteInterestAreaType(int interestAreaTypeID);
         //void Save();
     }
@@ -72,7 +72,7 @@ namespace YLFR
     public interface ILearningCenterPreferenceTypesRepository
     {
         IEnumerable<LearningCenterPreferencesOptions> GetLearningCenterPreferenceOptions();
-        //void AddLearningCenterPreferenceType(LearningCenterPreferenceType preferenceType);
+        //void AddLearningCenterPreferenceType(PostedLearningCenters learningCenterPreferences, string email);
         //void DeleteLearningCenterPreferenceType(int learningCenterPrefID);
         //void Save();
     }

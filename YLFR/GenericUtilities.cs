@@ -33,10 +33,9 @@ namespace YLFR
             }
         }
         
-        public int GetApplicantID()
+        public int GetApplicantID(string email)
         {
-            UserID = System.Web.HttpContext.Current.Session["userID"].ToString();
-            return entities.Applicants.FirstOrDefault(x => x.Email == UserID).ApplicantId;
+            return entities.Applicants.FirstOrDefault(x => x.Email == email).ApplicantId;
         }
 
         public GenericUtilities()

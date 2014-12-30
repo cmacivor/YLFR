@@ -157,7 +157,7 @@
                 }
             </table>*@
                 <div id="container">
-                    <table id="tblInterestAreas" class="table table-striped table-bordered" cellspacing="0">
+                    <table id="tblInterestAreas" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 @*<th>InterestAreaID</th>
@@ -233,6 +233,12 @@
                 if (count > 1) {
                     //alert(count);
 
+                    var uncheckedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:not(:checked)').map(function () {
+                        return this.value;
+                    }).get();
+                    //delete unchecked values?
+                    
+
                     var checkedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').map(function () {
                         return this.value;
                     }).get();
@@ -248,37 +254,18 @@
                             }
                         }),
                         success: function () {
-                            //load jquery Datatable with data just entered and make it editable
-                            $('#divInterestAreaRanking').show();
-                            $('#tblInterestAreas').dataTable({
-                                "bServerSide": true,
-                                "sAjaxSource": "GetInterestAreasByEmailID",
-                                "searching": false,
-                                "lengthChange": false,
-                                //"jQueryUI": true,
-                                "paging": false,
-                                "bProcessing": true,
-                                "aoColumns": [
-                                    //{
-                                    //    "sName": "ID",
-                                    //    "bSearchable": false,
-                                    //    "bSortable": false
-                                      
-                                    //},
-                                    //    {
-                                    //        "sName": "ApplicantID",
-                                    //        "bSearchable": false,
-                                    //    },
-                                        {
-                                            "sName": "InterestArea",
-                                            "bSearchable": false,
-                                        },
-                                        {
-                                            "sName": "PreferenceRanking",
-                                            "bSearchable": false,
-                                        }
-                                ]
-                            });
+                            //LoadInterestAreaDataTable();
+                            if ($.fn.dataTable.isDataTable('#tblInterestAreas')) {
+                                table = $('#tblInterestAreas').DataTable();
+                                table.ajax.reload();
+                            }
+                            else {
+                                //table = $('#example').DataTable({
+                                //    //paging: false
+                                //});
+
+                                LoadInterestAreaDataTable();
+                            }
 
                         },
                         error: function () {
@@ -286,7 +273,47 @@
                         }
                     });
                 }
+                if (count == 1)
+                {
+                    $('#divInterestAreaRanking').hide();
+                }
             });
+
+            function LoadInterestAreaDataTable()
+            {
+                //load jquery Datatable with data just entered and make it editable
+                $('#divInterestAreaRanking').show();
+                $('#tblInterestAreas').dataTable({
+                    "bServerSide": true,
+                    "sAjaxSource": "GetInterestAreasByEmailID",
+                    "searching": false,
+                    "lengthChange": false,
+                    //"retrieve": true,
+                    //"jQueryUI": true,
+                    "paging": false,
+                    "bProcessing": true,
+                    "aoColumns": [
+                        //{
+                        //    "sName": "ID",
+                        //    "bSearchable": false,
+                        //    "bSortable": false
+
+                        //},
+                        //    {
+                        //        "sName": "ApplicantID",
+                        //        "bSearchable": false,
+                        //    },
+                            {
+                                "sName": "InterestArea",
+                                "bSearchable": false,
+                            },
+                            {
+                                "sName": "PreferenceRanking",
+                                "bSearchable": false,
+                            }
+                    ]
+                });
+            }
             
             $('#availableDays').change(function () {
                 alert('test suc');

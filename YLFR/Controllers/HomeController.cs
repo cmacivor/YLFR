@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using YLFR.Models;
 using YLFR.ViewModels;
+using YLFR;
 
 namespace YLFR.Controllers
 {
@@ -110,6 +111,28 @@ namespace YLFR.Controllers
             unitOfWork.InterestAreasRepository.AddInterestAreas(learningCenterPref, testEmail);
             unitOfWork.InterestAreasRepository.Save();
             return Json("OK");
+        }
+
+        public ActionResult GetInterestAreasByEmailID(jQueryDataTableParamModel param)
+        {
+            //need to replace this with Session variable later
+            string testEmail = "cmacivor82@gmail.com";
+
+            var interestAreas = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(testEmail);
+            var result = from c in interestAreas
+                         select new[] { 
+                             //c.InterestAreaID.ToString(), 
+                             //c.ApplicantID.ToString(), 
+                             c.InterestArea1, 
+                             c.PreferenceRanking.ToString() 
+                         };
+            return Json(new
+            {
+                sEcho = param.sEcho,
+                iTotalRecords = interestAreas.Count(),
+                iTotalDisplayRecords = interestAreas.Count(),
+                aaData = result
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -156,6 +156,17 @@ namespace YLFR.Tests.Controllers
             unitOfWork.ApplicantRepository.Save();
         }
 
+        [TestMethod]
+        public void GetInterestAreasByEmail()
+        {
+            UnitOfWork unitOfWork = new UnitOfWork();
+            string testEmail = "cmacivor82@gmail.com";
+            var interestAreas = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(testEmail);
+
+           
+
+            
+        }
 
         
     }

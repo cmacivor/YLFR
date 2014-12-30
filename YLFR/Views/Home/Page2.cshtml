@@ -147,17 +147,30 @@
         </div>
         <div class="form-group">
             <label class="control-label col-md-2">If you mark more than one area, please put a number to indicate the order of your preference.</label>
-            <div class="col-md-offset-2 col-md-10" id="divInterestAreaRanking">
+            <div class="col-md-offset-2 col-md-10" id="divInterestAreaRanking" style="display:none">
                 @*<table>
-                        @foreach (var item in @Model.AvailableLearningCenters)
-                        {
+                @foreach (var item in @Model.AvailableLearningCenters)
+                {
+                    <tr>
+                        <td>@item.Name: @Html.EditorFor(x => item.Name) </td>
+                    </tr>
+                }
+            </table>*@
+                <div id="container">
+                    <table id="tblInterestAreas" class="table table-striped table-bordered" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td>@item.Name: @Html.EditorFor(x => item.Name) </td>
+                                @*<th>InterestAreaID</th>
+                    <th>ApplicantID</th>*@
+                                <th>Interest Area</th>
+                                <th>Ranking</th>
                             </tr>
-                        }
-                    </table>*@
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
                 <div class="form-group">
-                    
+
 
                 </div>
             </div>
@@ -189,6 +202,16 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript" src="~/Scripts/json3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables-1.10.4/jquery.dataTables.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.jqueryui.js"></script>*@
+    <script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables-1.10.4/css/dataTables.bootstrap.css" />
+    @*<script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.jqueryui.js"></script>*@
+    @*<link rel="stylesheet" type="text/css" href="~/Content/DataTables-1.10.4/css/dataTables.jqueryui.css" />*@
+    @*<link rel="stylesheet" type="text/css" href="~/Content/DataTables-1.10.4/css/jquery.dataTables_themeroller.css" />*@
+
     <script type="text/javascript">
         //alert('test');
         //need to loop through all selected checkboxes and render textboxes so they have the ability to indicate order of Interest Areas
@@ -226,6 +249,36 @@
                         }),
                         success: function () {
                             //load jquery Datatable with data just entered and make it editable
+                            $('#divInterestAreaRanking').show();
+                            $('#tblInterestAreas').dataTable({
+                                "bServerSide": true,
+                                "sAjaxSource": "GetInterestAreasByEmailID",
+                                "searching": false,
+                                "lengthChange": false,
+                                //"jQueryUI": true,
+                                "paging": false,
+                                "bProcessing": true,
+                                "aoColumns": [
+                                    //{
+                                    //    "sName": "ID",
+                                    //    "bSearchable": false,
+                                    //    "bSortable": false
+                                      
+                                    //},
+                                    //    {
+                                    //        "sName": "ApplicantID",
+                                    //        "bSearchable": false,
+                                    //    },
+                                        {
+                                            "sName": "InterestArea",
+                                            "bSearchable": false,
+                                        },
+                                        {
+                                            "sName": "PreferenceRanking",
+                                            "bSearchable": false,
+                                        }
+                                ]
+                            });
 
                         },
                         error: function () {

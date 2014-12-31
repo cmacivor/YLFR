@@ -40,7 +40,7 @@ namespace YLFR
     {
         List<InterestArea> GetInterestAreasByApplicantID(int applicantID);
         void AddInterestAreas(PostedInterestAreas interestAreas, string email);
-        void DeleteInterestAreaByApplicantID(int applicantID);
+        void DeleteInterestArea(InterestArea interestArea);
         List<InterestArea> GetInterestAreasByApplicantEmail(string email);
         void Save();
     }

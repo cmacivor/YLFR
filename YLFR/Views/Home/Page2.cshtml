@@ -224,20 +224,46 @@
             //    }).get();
             //    console.log(checkedValues);
             //});
+            function RefreshInterestAreaTable()
+            {
+                if ($.fn.dataTable.isDataTable('#tblInterestAreas')) {
+                    table = $('#tblInterestAreas').DataTable();
+                    table.ajax.reload();
+                }
+                else {
+                    //table = $('#example').DataTable({
+                    //    //paging: false
+                    //});
 
+                    LoadInterestAreaDataTable();
+                }
+            }
            
-            $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function () {
+            $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function (event) {
+                //event.preventDefault();
                 //will want to save these in the corresponding table before letting them rate their entries.
                 var count = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').length;
                 //alert(count);
                 if (count > 1) {
                     //alert(count);
-
-                    var uncheckedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:not(:checked)').map(function () {
-                        return this.value;
-                    }).get();
+                    $('#divInterestAreaRanking').show();
+                    //var uncheckedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:not(:checked)').map(function () {
+                    //    return this.value;
+                    //}).get();
                     //delete unchecked values?
-                    
+                    //$.ajax({
+                    //    url: "DeleteInterestArea",
+                    //    type: "POST",
+                    //    contentType: 'application/json; charset=utf-8',
+                    //    data: JSON3.stringify({
+                    //        interestAreas: {
+                    //            'AvailableInterestAreaIDs': uncheckedValues
+                    //        }
+                    //    }),
+                    //    success: function () {
+                    //        RefreshInterestAreaTable();
+                    //    }
+                    //});
 
                     var checkedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').map(function () {
                         return this.value;
@@ -255,17 +281,18 @@
                         }),
                         success: function () {
                             //LoadInterestAreaDataTable();
-                            if ($.fn.dataTable.isDataTable('#tblInterestAreas')) {
-                                table = $('#tblInterestAreas').DataTable();
-                                table.ajax.reload();
-                            }
-                            else {
-                                //table = $('#example').DataTable({
-                                //    //paging: false
-                                //});
+                            //if ($.fn.dataTable.isDataTable('#tblInterestAreas')) {
+                            //    table = $('#tblInterestAreas').DataTable();
+                            //    table.ajax.reload();
+                            //}
+                            //else {
+                            //    //table = $('#example').DataTable({
+                            //    //    //paging: false
+                            //    //});
 
-                                LoadInterestAreaDataTable();
-                            }
+                            //    LoadInterestAreaDataTable();
+                            //}
+                            RefreshInterestAreaTable();
 
                         },
                         error: function () {
@@ -275,6 +302,7 @@
                 }
                 if (count == 1)
                 {
+                    //alert(count);
                     $('#divInterestAreaRanking').hide();
                 }
             });

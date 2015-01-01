@@ -79,6 +79,7 @@
     <EntitySetMapping Name="InterestAreas">
       <EntityTypeMapping TypeName="IsTypeOf(MentorshipAppllicantsModel.InterestArea)">
         <MappingFragment StoreEntitySet="InterestAreas">
+          <ScalarProperty Name="UserCreatedInterestArea" ColumnName="UserCreatedInterestArea" />
           <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
           <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
           <ScalarProperty Name="InterestArea1" ColumnName="InterestArea1" />

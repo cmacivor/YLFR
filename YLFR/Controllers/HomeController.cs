@@ -98,7 +98,7 @@ namespace YLFR.Controllers
             {
                 //get the record from current user from the session 
             }
-            return View();
+            return View(unitOfWork.AvailableTimesRepository.GetAvailableDaysInitialModel());
         }
 
         [HttpPost]
@@ -117,54 +117,6 @@ namespace YLFR.Controllers
             //unitOfWork.LearningCenterPreferenceRepository.AddLearningCenterPreferenceByApplicantID(learningCenterPref, testEmail);
             unitOfWork.InterestAreasRepository.AddInterestAreas(learningCenterPref, testEmail);
             unitOfWork.InterestAreasRepository.Save();
-            return Json("OK");
-        }
-
-        [HttpPost]
-        public JsonResult DeleteInterestArea(PostedInterestAreas interestAreas)
-        {
-            //need to replace this with Session variable later
-            string testEmail = "cmacivor82@gmail.com";
-
-            var records = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(testEmail);
-            //need to handle unchecking an interest area
-            //var records = GetInterestAreasByApplicantEmail(email);
-            //if (interestAreas.AvailableInterestAreaIDs.Count() > records.Count())
-            //{
-                //find which one is missing and delete it
-                //foreach (var existingItem in records)
-                //{
-                //    var doesExist = from c in interestAreas.AvailableInterestAreaIDs
-                //                    where c.FirstOrDefault().ToString() == existingItem.InterestArea1
-                //                    select c;
-                //    if (!doesExist.Any())
-                //    {
-                //        //entities.InterestAreas.Remove(existingItem);
-                //        //entities.SaveChanges();
-                //        unitOfWork.InterestAreasRepository.DeleteInterestArea(existingItem);
-                //        unitOfWork.InterestAreasRepository.Save();
-                //    }
-                //}
-            
-
-            //for each unchecked box, query the existing list of records by the unchecked value and delete it if it exists
-            //foreach(var item in interestAreas.AvailableInterestAreaIDs)
-            //{
-            //    var doesExist = (from c in records
-            //                     where records.FirstOrDefault().InterestArea1 == item
-            //                     select c).FirstOrDefault();
-            //    if (doesExist != null)
-            //    {
-            //        unitOfWork.InterestAreasRepository.DeleteInterestArea(doesExist);
-            //        unitOfWork.InterestAreasRepository.Save();
-            //    }
-            //}
-            foreach (var item in records)
-            {
-                unitOfWork.InterestAreasRepository.DeleteInterestArea(item);
-                unitOfWork.InterestAreasRepository.Save();
-            }
-            //}
             return Json("OK");
         }
 

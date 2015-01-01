@@ -145,6 +145,12 @@
                                   position: MvcCheckBoxList.Model.Position.Vertical)
             </div>
         </div>
+        <div class="form-group" style="display:none" id="txtOtherInterestTypeSpecifics">
+            @Html.LabelFor(model => model.OtherInterestTypeSpecifics, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OtherInterestTypeSpecifics, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
         <div class="form-group">
             <label class="control-label col-md-2">If you mark more than one area, please put a number to indicate the order of your preference.</label>
             <div class="col-md-offset-2 col-md-10" id="divInterestAreaRanking" style="display:none">
@@ -203,17 +209,12 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript" src="~/Scripts/json3.min.js"></script>
     <script type="text/javascript" src="~/Scripts/DataTables-1.10.4/jquery.dataTables.min.js"></script>
-    @*<script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.jqueryui.js"></script>*@
     <script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.bootstrap.js"></script>
     <script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/DataTables-1.10.4/css/dataTables.bootstrap.css" />
-    @*<script type="text/javascript" src="~/Scripts/DataTables-1.10.4/dataTables.jqueryui.js"></script>*@
-    @*<link rel="stylesheet" type="text/css" href="~/Content/DataTables-1.10.4/css/dataTables.jqueryui.css" />*@
-    @*<link rel="stylesheet" type="text/css" href="~/Content/DataTables-1.10.4/css/jquery.dataTables_themeroller.css" />*@
 
     <script type="text/javascript">
-        //alert('test');
         //need to loop through all selected checkboxes and render textboxes so they have the ability to indicate order of Interest Areas
         //then make an ajax call on submit
         $(document).ready(function () {
@@ -240,35 +241,31 @@
             }
            
             $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]').click(function (event) {
-                //event.preventDefault();
                 //will want to save these in the corresponding table before letting them rate their entries.
                 var count = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').length;
-                //alert(count);
                 if (count > 1) {
-                    //alert(count);
                     $('#divInterestAreaRanking').show();
                     //var uncheckedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:not(:checked)').map(function () {
                     //    return this.value;
                     //}).get();
-                    //delete unchecked values?
-                    //$.ajax({
-                    //    url: "DeleteInterestArea",
-                    //    type: "POST",
-                    //    contentType: 'application/json; charset=utf-8',
-                    //    data: JSON3.stringify({
-                    //        interestAreas: {
-                    //            'AvailableInterestAreaIDs': uncheckedValues
-                    //        }
-                    //    }),
-                    //    success: function () {
-                    //        RefreshInterestAreaTable();
-                    //    }
-                    //});
 
                     var checkedValues = $('input[name="PostedInterestAreas.AvailableInterestAreaIDs"]:checked').map(function () {
                         return this.value;
                     }).get();
-                    //console.log(checkedValues);
+
+                    //check if any of the checked values contain Other, if so then show a textbox to input their specific preference
+                    checkedValues.forEach(function (item) {
+                        if (item == "Other")
+                        {
+                            //alert('woooo');
+                            $('#txtOtherInterestTypeSpecifics').show();
+                        }
+                        else
+                        {
+                            $('#txtOtherInterestTypeSpecifics').hide();
+                        }
+                    });
+
                     //make ajax call to insert rows into 
                     $.ajax({
                         url: "/Home/SaveInterestArea",
@@ -280,20 +277,7 @@
                             }
                         }),
                         success: function () {
-                            //LoadInterestAreaDataTable();
-                            //if ($.fn.dataTable.isDataTable('#tblInterestAreas')) {
-                            //    table = $('#tblInterestAreas').DataTable();
-                            //    table.ajax.reload();
-                            //}
-                            //else {
-                            //    //table = $('#example').DataTable({
-                            //    //    //paging: false
-                            //    //});
-
-                            //    LoadInterestAreaDataTable();
-                            //}
                             RefreshInterestAreaTable();
-
                         },
                         error: function () {
 
@@ -302,7 +286,6 @@
                 }
                 if (count == 1)
                 {
-                    //alert(count);
                     $('#divInterestAreaRanking').hide();
                 }
             });
@@ -321,16 +304,6 @@
                     "paging": false,
                     "bProcessing": true,
                     "aoColumns": [
-                        //{
-                        //    "sName": "ID",
-                        //    "bSearchable": false,
-                        //    "bSortable": false
-
-                        //},
-                        //    {
-                        //        "sName": "ApplicantID",
-                        //        "bSearchable": false,
-                        //    },
                             {
                                 "sName": "InterestArea",
                                 "bSearchable": false,

@@ -38,6 +38,9 @@ namespace YLFR.ViewModels
         [Display(Name="Are you able to provide a ride to other mentors?")]
         public string ProvideRide { get; set; }
 
+        [Display(Name="If you marked 'Other', please specify.")]
+        public string  OtherInterestTypeSpecifics { get; set; }
+
         public SelectList DropDownListOptions { get; set; }
 
         public IEnumerable<AvailableDays> AvailableDays { get; set; }

@@ -158,9 +158,11 @@ namespace YLFR.Controllers
            int? columnPosition, int? columnId, string columnName)
         {
             //need to replace this with Session variable later
-            string testEmail = "cmacivor82@gmail.com";
+            //string testEmail = "cmacivor82@gmail.com";
 
-            return testEmail;
+            unitOfWork.InterestAreasRepository.UpdatePreferenceRanking(id, value);
+
+            return value;
         }
     }
 }

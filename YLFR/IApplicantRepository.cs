@@ -41,6 +41,7 @@ namespace YLFR
         List<InterestArea> GetInterestAreasByApplicantID(int applicantID);
         void AddInterestAreas(PostedInterestAreas interestAreas, string email);
         void DeleteInterestArea(InterestArea interestArea);
+        void UpdatePreferenceRanking(int interestAreaID, string userInput);
         List<InterestArea> GetInterestAreasByApplicantEmail(string email);
         void Save();
     }

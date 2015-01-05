@@ -128,7 +128,7 @@ namespace YLFR.Controllers
             var interestAreas = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(testEmail);
             var result = from c in interestAreas
                          select new[] { 
-                             //c.InterestAreaID.ToString(), 
+                             c.InterestAreaID.ToString(), 
                              //c.ApplicantID.ToString(), 
                              c.InterestArea1, 
                              c.PreferenceRanking.ToString() 
@@ -140,6 +140,27 @@ namespace YLFR.Controllers
                 iTotalDisplayRecords = interestAreas.Count(),
                 aaData = result
             }, JsonRequestBehavior.AllowGet);
+        }
+
+        //for inline editing of the PreferenceRanking column in the InterestAreas table
+        /// <summary>Action that updates data
+        /// </summary>
+        /// <param name="id">Id of the record</param>
+        /// <param name="value">Value that should be set</param>
+        /// <param name="rowId">Id of the row</param>
+        /// <param name="columnPosition">Position of the
+        ///           column(hidden columns are not counted)</param>
+        /// <param name="columnId">Position of the column(hidden columns are counted)</param>
+        /// <param name="columnName">Name of the column</param>
+        /// <returns>value if update suceed - any other value
+        ///        will be considered as an error message on the client-side</returns>
+        public string UpdateData(int id, string value, int? rowId, 
+           int? columnPosition, int? columnId, string columnName)
+        {
+            //need to replace this with Session variable later
+            string testEmail = "cmacivor82@gmail.com";
+
+            return testEmail;
         }
     }
 }

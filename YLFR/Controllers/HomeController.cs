@@ -12,6 +12,8 @@ namespace YLFR.Controllers
     public class HomeController : Controller
     {
         private UnitOfWork unitOfWork = null;
+        
+
 
         public HomeController()
             : this(new UnitOfWork())
@@ -86,7 +88,7 @@ namespace YLFR.Controllers
 
                 unitOfWork.ApplicantRepository.AddApplicant(applicant);
                 unitOfWork.ApplicantRepository.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("Page2");
             }
             return View();
         }
@@ -96,7 +98,11 @@ namespace YLFR.Controllers
         {
             if (ModelState.IsValid)
             {
-                //get the record from current user from the session 
+                //get the record from current user from the session
+                
+
+                //logging
+                YLFREventSource.Log.RecordSaved(vm);
             }
             return View(unitOfWork.AvailableTimesRepository.GetAvailableDaysInitialModel());
         }

@@ -16,6 +16,8 @@ namespace YLFR
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            YLFLogConfig config = new YLFLogConfig();
         }
     }
 }

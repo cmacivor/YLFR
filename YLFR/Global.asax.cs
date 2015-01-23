@@ -17,7 +17,7 @@ namespace YLFR
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            YLFLogConfig config = new YLFLogConfig();
+            //YLFLogConfig config = new YLFLogConfig();
         }
     }
 }

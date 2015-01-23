@@ -45,6 +45,24 @@ namespace YLFR
         
     }
 
-    
+    public static class SessionHelper
+    {
+        public static string UserEmail
+        {
+            get
+            {
+                if (HttpContext.Current.Session["userID"] != null)
+                {
+                    return (string)HttpContext.Current.Session["userID"];
+                }
+                return string.Empty;
+            }
+
+            set
+            {
+                HttpContext.Current.Session["userID"] = value;
+            }
+        }
+    }
 
 }

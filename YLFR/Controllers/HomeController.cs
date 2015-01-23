@@ -45,8 +45,25 @@ namespace YLFR.Controllers
             return View();
         }
 
+        private void LoadGenderSelectList()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            //SelectList items = new List<SelectListItem>();
+
+            items.Add(new SelectListItem { Text = "Male", Value = "Male" });
+            items.Add(new SelectListItem { Text = "Female", Value = "Female" });
+
+            var selectList = new SelectList(items, "Value", "Text");
+
+            ViewBag.Gender = selectList;
+            //IEnumerable<SelectListItem> items = new List<SelectListItem>();
+        }
+
         public ActionResult Page1()
         {
+            LoadGenderSelectList();
+           
+
             return View();
         }
 
@@ -66,6 +83,7 @@ namespace YLFR.Controllers
                     FirstName = vm.FirstName,
                     MiddleName = vm.MiddleName,
                     LastName = vm.LastName,
+                    Date = DateTime.Now,
                     Address = vm.Address,
                     Phone = vm.Phone,
                     BirthDate = vm.BirthDate,
@@ -90,6 +108,7 @@ namespace YLFR.Controllers
                 unitOfWork.ApplicantRepository.Save();
                 return RedirectToAction("Page2");
             }
+            LoadGenderSelectList();
             return View();
         }
 
@@ -99,10 +118,28 @@ namespace YLFR.Controllers
             if (ModelState.IsValid)
             {
                 //get the record from current user from the session
-                
+                if (!String.IsNullOrEmpty(SessionHelper.UserEmail))
+                {
+                    string email = SessionHelper.UserEmail;
+                    var applicant = unitOfWork.ApplicantRepository.GetApplicantByEmailAddress(SessionHelper.UserEmail);
+                    if (applicant != null)
+                    {
+                        unitOfWork.ApplicantRepository.UpdateApplicant(vm, email);
+                        unitOfWork.CommitmentDaysRepository.AddCommitmentDays(vm.PostedAvailableDays, email);
+                        unitOfWork.CommitmentTimesRepository.AddCommitmentTimes(vm.PostedAvailableTimes, email);
+                        unitOfWork.InterestAreasRepository.AddInterestAreas(vm.PostedInterestAreas, email);
+                        unitOfWork.LearningCenterPreferenceRepository.AddLearningCenterPreferenceByApplicantID(vm.PostedLearningCenters, email);
+                        unitOfWork.ApplicantRepository.Save();
 
-                //logging
-                YLFREventSource.Log.RecordSaved(vm);
+
+                        //logging
+                        //YLFREventSource.Log.RecordSaved(vm);
+                    }
+
+
+                }
+
+
             }
             return View(unitOfWork.AvailableTimesRepository.GetAvailableDaysInitialModel());
         }
@@ -111,41 +148,49 @@ namespace YLFR.Controllers
         public JsonResult SaveInterestArea(PostedInterestAreas learningCenterPref)
         {
             //need to replace this with Session variable later
-            string testEmail = "cmacivor82@gmail.com";
-
-            var records = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(testEmail);
-            foreach (var item in records)
+            //string testEmail = "cmacivor82@gmail.com";
+            if (!String.IsNullOrEmpty(SessionHelper.UserEmail))
             {
-                unitOfWork.InterestAreasRepository.DeleteInterestArea(item);
-                unitOfWork.InterestAreasRepository.Save();
-            }
+                var records = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(SessionHelper.UserEmail);
+                foreach (var item in records)
+                {
+                    unitOfWork.InterestAreasRepository.DeleteInterestArea(item);
+                    unitOfWork.InterestAreasRepository.Save();
+                }
 
-            //unitOfWork.LearningCenterPreferenceRepository.AddLearningCenterPreferenceByApplicantID(learningCenterPref, testEmail);
-            unitOfWork.InterestAreasRepository.AddInterestAreas(learningCenterPref, testEmail);
-            unitOfWork.InterestAreasRepository.Save();
-            return Json("OK");
+                //unitOfWork.LearningCenterPreferenceRepository.AddLearningCenterPreferenceByApplicantID(learningCenterPref, testEmail);
+                unitOfWork.InterestAreasRepository.AddInterestAreas(learningCenterPref, SessionHelper.UserEmail);
+                unitOfWork.InterestAreasRepository.Save();
+                return Json("OK");
+            }
+            return Json("Session is null");
         }
 
+        [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult GetInterestAreasByEmailID(jQueryDataTableParamModel param)
         {
             //need to replace this with Session variable later
-            string testEmail = "cmacivor82@gmail.com";
-
-            var interestAreas = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(testEmail);
-            var result = from c in interestAreas
-                         select new[] { 
+            //string testEmail = "cmacivor82@gmail.com";
+            if (!String.IsNullOrEmpty(SessionHelper.UserEmail))
+            {
+                string email = SessionHelper.UserEmail;
+                var interestAreas = unitOfWork.InterestAreasRepository.GetInterestAreasByApplicantEmail(email);
+                var result = from c in interestAreas
+                             select new[] { 
                              c.InterestAreaID.ToString(), 
                              //c.ApplicantID.ToString(), 
                              c.InterestArea1, 
                              c.PreferenceRanking.ToString() 
                          };
-            return Json(new
-            {
-                sEcho = param.sEcho,
-                iTotalRecords = interestAreas.Count(),
-                iTotalDisplayRecords = interestAreas.Count(),
-                aaData = result
-            }, JsonRequestBehavior.AllowGet);
+                return Json(new
+                {
+                    sEcho = param.sEcho,
+                    iTotalRecords = interestAreas.Count(),
+                    iTotalDisplayRecords = interestAreas.Count(),
+                    aaData = result
+                }, JsonRequestBehavior.AllowGet);
+            }
+            return Json("Session is null", JsonRequestBehavior.AllowGet);
         }
 
         //for inline editing of the PreferenceRanking column in the InterestAreas table
@@ -166,9 +211,14 @@ namespace YLFR.Controllers
             //need to replace this with Session variable later
             //string testEmail = "cmacivor82@gmail.com";
 
+            
+
             unitOfWork.InterestAreasRepository.UpdatePreferenceRanking(id, value);
 
             return value;
         }
+
+       
+
     }
 }

@@ -79,8 +79,13 @@ namespace YLFR.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    Session["userID"] = model.Email;
-                    return RedirectToLocal(returnUrl);
+                    //Session["userID"] = model.Email;
+                    SessionHelper.UserEmail = model.Email;
+
+                    //insert logic here to handle where they are in the process
+                    return RedirectToAction("Page1", "Home");
+                    //return RedirectToLocal(returnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -156,6 +161,7 @@ namespace YLFR.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    SessionHelper.UserEmail = model.Email;
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -164,7 +170,7 @@ namespace YLFR.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Page1", "Home");
                 }
                 AddErrors(result);
             }
@@ -335,6 +341,7 @@ namespace YLFR.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+                    //SessionHelper.UserEmail = loginInfo.Email;
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
